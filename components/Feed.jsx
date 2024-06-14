@@ -1,20 +1,34 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { getAllFeedsFromDB } from '@utils/database';
+import { initDB, getAllFeedsFromDB } from '@utils/database';
 import FeedCard from './FeedCard';
 
 const FeedCardList = ({ data, handleTagClick }) => {
 	return (
-		<div className="flex gap-4 flex-wrap mt-16 w-full">
-			{data.map((post) => {
-				return <FeedCard
-					key={post.id}
-					post={post}
-					handleTagClick={handleTagClick}
-				/>
-			})}
-		</div>
+		<>
+		{data.length === 0 ? (
+			<div>
+				<Link href="/add-feed" className="black_btn">
+					Add Feed
+				</Link>
+			</div>
+		) : (
+			<div className="flex flex-col gap-4 mt-16 w-full">
+				<h2 className="font-bold text-2xl">Your Feeds</h2>
+				<div className="flex flex-wrap gap-4">
+					{data.map((post) => {
+						return <FeedCard
+							key={post.id}
+							post={post}
+							handleTagClick={handleTagClick}
+						/>
+					})}
+				</div>
+			</div>
+		)}
+		</>
 	)
 }
 
@@ -22,9 +36,7 @@ const Feed = () => {
 	const [ searchText, setSearchText ] = useState('');
 	const [ posts, setPosts ] = useState([]);
 
-	const handleSearchChange = e => {
-
-	}
+	const handleSearchChange = e => {}
 
 	async function fetchFeedsFromServer() {
 		const response = await fetch('/api/feed', {
@@ -35,9 +47,9 @@ const Feed = () => {
 		});
 
 		if (response.ok) {
-			// Since the server indicates that the client should handle the IndexedDB part,
-			// proceed to fetch from IndexedDB
-
+			const dbName = 'FeedDB';
+			const storeName = 'feeds';
+			const db = await initDB(dbName, storeName);
 			const feeds = await getAllFeedsFromDB('FeedDB', 'feeds');
 			return feeds;
 		} else {
@@ -57,7 +69,7 @@ const Feed = () => {
 
 	return (
 		<section className="feed">
-			<form className="relative w-full flex-center">
+			{/*<form className="relative w-full flex-center">
 				<input
 					type="text"
 					placeholder="Search for a tag or feed"
@@ -66,7 +78,7 @@ const Feed = () => {
 					required
 					className="search_input peer"
 				/>
-			</form>
+			</form>*/}
 
 			<FeedCardList
 				data={posts}
