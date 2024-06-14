@@ -33,6 +33,10 @@ const Nav = () => {
 						Add Feed
 					</Link>
 
+					<Link href="/wall" className="black_btn">
+						Wall
+					</Link>
+
 					<Link href="/profile" className="black_btn">
 						Profile
 					</Link>

@@ -40,7 +40,7 @@ const Form = ({ type, feed, setFeed, submitting, handleSubmit }) => {
 					<button
 						type="submit"
 						disabled={submitting}
-						className="px-5 py-1.5 text-sm rounded-full bg-primary-orange text-white">
+						className="px-5 py-1.5 text-sm rounded-full bg-teal-600 text-white">
 
 						{submitting ? `${type}...` : type}
 					</button>
