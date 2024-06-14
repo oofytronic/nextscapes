@@ -1,12 +1,15 @@
-export const POST = async (req, res) => {
-	try {
-		// const db = await initDB(dbName, storeName);
-		// const result = await addFeedToDB(dbName, storeName, req.body);
+import { NextResponse } from 'next/server';
 
-		const data = req.body;
+export async function POST(req) {
+    try {
+        const data = await req.json(); // Parse JSON body
 
-		res.status(201).json({ message: 'Feed added successfully', data });
-	} catch (error) {
-		res.status(500).json({ message: 'Error adding feed', error });
-	}
+        // Simulate a database operation here
+        // const db = await initDB(dbName, storeName);
+        // const result = await addFeedToDB(dbName, storeName, data);
+
+        return NextResponse.json({ message: 'Feed added successfully', data }, { status: 201 });
+    } catch (error) {
+        return NextResponse.json({ message: 'Error adding feed', error: error.message }, { status: 500 });
+    }
 }
