@@ -1,7 +1,7 @@
 import '@styles/globals.css';
 
 import Nav from '@components/Nav';
-// import Provider from '@components/Provider';
+import Footer from '@components/Footer';
 
 export const metadata = {
 	title: "Scapes",
@@ -11,7 +11,7 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-		<body>
+		<body className="min-h-dvh">
 			<div className="main">
 				<div className="blur-circle circle1"></div>
 				<div className="blur-circle circle2"></div>
@@ -21,6 +21,7 @@ const RootLayout = ({ children }) => {
 				<Nav />
 				{children}
 			</div>
+			<Footer />
 		</body>
 		</html>
 	)
