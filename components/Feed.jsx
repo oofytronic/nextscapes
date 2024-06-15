@@ -10,7 +10,7 @@ const FeedCardList = ({ data, handleTagClick }) => {
 		<>
 		{data.length === 0 ? (
 			<div>
-				<Link href="/add-feed" className="black_btn">
+				<Link href="/add-feed" className="light_btn">
 					Add Feed
 				</Link>
 			</div>
@@ -69,17 +69,6 @@ const Feed = () => {
 
 	return (
 		<section className="feed">
-			{/*<form className="relative w-full flex-center">
-				<input
-					type="text"
-					placeholder="Search for a tag or feed"
-					value={searchText}
-					onChange={handleSearchChange}
-					required
-					className="search_input peer"
-				/>
-			</form>*/}
-
 			<FeedCardList
 				data={posts}
 				handleTagClick={() => {}}

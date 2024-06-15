@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { initDB, getAllFeedsFromDB } from '@utils/database';
-
+import Link from 'next/link';
 
 
 export default function WallPage() {
@@ -38,25 +38,35 @@ export default function WallPage() {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex flex-col gap-4 flex-center">
+                <h1 className="head_text text-center">
+                    Feed Wall
+                </h1>
+                <p className="font-satoshi font-semibold">Loading...</p>
+            </div>
+        );
     }
 
     return (
-        <div>
+        <div className="flex flex-col gap-4 flex-center">
             <h1 className="head_text text-center">
                 Feed Wall
             </h1>
             {articles.length === 0 ? (
-                <div>No articles found. Please add feeds.</div>
+                <div>
+                    <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
+                    <Link href="/add-feeds" className="light_btn" />
+                </div>
             ) : (
-                <div className="flex gap-4 flex-wrap mt-16 w-full">
+                <div className="flex flex-col gap-4 flex-wrap mt-16 w-full">
                     {articles.map((article, index) => (
-                        <div key={index} className="prompt_card flex flex-col gap-4 cursor-pointer">
-                            <h2 className="font-inter font-semibold text-gray-900">{article.title}</h2>
-                            <a href={article.link} target="_blank" rel="noopener noreferrer" className="font-satoshi font-semibold text-gray-900">
+                        <a href={article.link} target="_blank" rel="noopener noreferrer" ><div key={index} className="flex flex-col flex-1 gap-4 bg-black/50 hover:bg-teal-500 transition border border-gray-500 rounded-md p-6 cursor-pointer">
+                            <h2 className="font-inter font-semibold text-gray-200">{article.title}</h2>
+                            <p className="font-satoshi font-semibold text-gray-200 text-sm">
                                 {article.link}
-                            </a>
-                        </div>
+                            </p>
+                        </div></a>
                     ))}
                 </div>
             )}

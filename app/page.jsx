@@ -7,10 +7,10 @@ const Home = () => {
 				Your Favorite Web Content
 				<br />
 				In One Place
-				<br className="" />
-				<span className="text-teal-600">Privately and Anonymously</span>
+				<br />
+				<span className="text-teal-500">Privately and Anonymously</span>
 			</h1>
-			<p className="max-w-prose">Scapes is an RSS Feed Reading application dedicated to user autonomy, personal data ownership, content aggregation and preserving the splendor of the World Wide Web.</p>
+			<p className="max-w-prose">Scapes is an RSS Feed Reading application dedicated to user autonomy, data ownership, content aggregation and preserving the splendor of the World Wide Web.</p>
 
 			<Feed />
 		</section>

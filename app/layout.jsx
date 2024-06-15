@@ -11,16 +11,17 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-			<body>
-					<div className="main">
-						<div className="gradient" />
-					</div>
-
-					<main className="app">
-						<Nav />
-						{children}
-					</main>
-			</body>
+		<body>
+			<div className="main">
+				<div className="blur-circle circle1"></div>
+				<div className="blur-circle circle2"></div>
+				<div className="blur-circle circle3"></div>
+			</div>
+			<div className="content">
+				<Nav />
+				{children}
+			</div>
+		</body>
 		</html>
 	)
 }
