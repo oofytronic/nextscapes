@@ -56,7 +56,9 @@ export default function WallPage() {
             {articles.length === 0 ? (
                 <div>
                     <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
-                    <Link href="/add-feeds" className="light_btn" />
+                    <Link href="/add-feeds" className="light_btn">
+                    	Add Feed
+                    </Link>
                 </div>
             ) : (
                 <div className="flex flex-col gap-4 flex-wrap mt-16 w-full">
