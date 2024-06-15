@@ -11,13 +11,13 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-		<body className="min-h-dvh">
+		<body className="min-h-dvh flex flex-col">
 			<div className="main">
 				<div className="blur-circle circle1"></div>
 				<div className="blur-circle circle2"></div>
 				<div className="blur-circle circle3"></div>
 			</div>
-			<div className="content">
+			<div className="content w-full flex-grow">
 				<Nav />
 				{children}
 			</div>

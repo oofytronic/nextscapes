@@ -10,7 +10,7 @@ const Footer = () => {
 	}, []);
 
 	return (
-		<footer className="w-full text-center p-6">
+		<footer className="w-full text-center p-6 mt-auto">
 			<p>© {currentYear} | feathermode | All rights reserved.</p>
 		</footer>
 	);
