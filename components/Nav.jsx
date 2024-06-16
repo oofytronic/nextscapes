@@ -11,7 +11,7 @@ const Nav = () => {
 	const [toggleDropdown, setToggleDropdown] = useState(false);
 	
 	return (
-		<nav className="flex-between w-full mb-16 pt-3">
+		<nav className="flex-between w-full mb-16 py-3 px-4 bg-black border rounded-full">
 			<div className="flex gap-2 flex-center">
 			<Link href="/">
 				<Image
