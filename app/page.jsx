@@ -8,7 +8,7 @@ const Home = () => {
 				<br />
 				In One Place
 				<br />
-				<span className="text-teal-500">Privately and Anonymously</span>
+				<span className="text-gradient">Privately and Anonymously</span>
 			</h1>
 			<p className="max-w-prose">Scapes is an RSS Feed Reading application dedicated to user autonomy, data ownership, content aggregation and preserving the splendor of the World Wide Web.</p>
 

@@ -11,7 +11,7 @@ const FeedCard = ({ post, handleTagClick, handleDelete }) => {
 					className="font-inter font-semibold text-gray-200 text-sm"
 					onClick={() => handleTagClick && handleTagClick(post.tag)}
 				>{post.tag}</p>
-				<p className="font-satoshi font-semibold text-gray-100">{post.url}</p>
+				<p className="font-satoshi font-semibold text-gray-100 break-words">{post.url}</p>
 			</div>
 		</div>
 	)

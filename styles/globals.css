@@ -22,7 +22,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: black;
+	@apply bg-black;
 	z-index: -1;
 }
 
@@ -35,7 +35,8 @@ body {
 .circle1 {
 	width: 250px;
 	height: 250px;
-	@apply bg-rose-500;
+	background: #FFD20A;
+/*	@apply bg-rose-500;*/
 	top: 10%;
 	left: 20%;
 }
@@ -43,7 +44,8 @@ body {
 .circle2 {
 	width: 300px;
 	height: 300px;
-	@apply bg-sky-500;
+	background: #4FC69E;
+/*	@apply bg-sky-500;*/
 	top: 50%;
 	left: 40%;
 }
@@ -51,7 +53,8 @@ body {
 .circle3 {
 	width: 250px;
 	height: 250px;
-	@apply bg-teal-500;
+	background: #348FFE;
+/*	@apply bg-teal-500;*/
 	top: 30%;
 	left: 70%;
 }
@@ -64,6 +67,15 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.text-gradient {
+	background: linear-gradient(45deg, #348FFE, #4FC69E, #FFD20A);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
 
 
 @media screen and (max-width: 640px) {
@@ -79,7 +91,7 @@ body {
 }
 
 .light_btn {
-  @apply rounded-full border border-white bg-white py-1.5 px-5 text-black transition-all hover:bg-teal-500 hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-white bg-white py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
 .black_btn {
@@ -109,7 +121,7 @@ body {
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm bg-white text-black outline-0;
 }
 
 .dropdown {
@@ -117,7 +129,7 @@ body {
 }
 
 .dropdown_link {
-  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+  @apply text-sm font-inter text-gray-700 hover:text-black font-medium;
 }
 
 .flex-center {
