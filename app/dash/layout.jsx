@@ -17,7 +17,7 @@ const DashLayout = ({ children }) => {
 				<DashNav />
 				<aside className="sidebar">
 					<div className="flex flex-between md:flex-col gap-4 w-full">
-						<Link href="/dash" className="w-full text-center font-bold hover:underline">
+						<Link href="/dash" className="md:w-full text-center font-bold hover:underline">
 							Main Feed
 						</Link>
 						<Link href="/dash/add-feed" className="dash-icon">
