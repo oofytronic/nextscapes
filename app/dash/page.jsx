@@ -41,7 +41,7 @@ export default function DashboardPage() {
         return (
             <div className="flex flex-col gap-4 flex-center">
                 <h1 className="head_text text-center">
-                    Feed Wall
+                    Main Feed
                 </h1>
                 <p className="font-satoshi font-semibold">Loading...</p>
             </div>
@@ -51,7 +51,7 @@ export default function DashboardPage() {
     return (
         <div className="flex flex-col gap-4 flex-center">
             <h1 className="head_text text-center">
-                Feed
+               Main Feed
             </h1>
             {articles.length === 0 ? (
                 <div className="flex flex-col gap-4">

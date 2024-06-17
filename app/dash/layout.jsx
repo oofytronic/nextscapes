@@ -17,10 +17,10 @@ const DashLayout = ({ children }) => {
 				<aside className="sidebar">
 					<div className="flex flex-between md:flex-col gap-4 w-full">
 						<Link href="/dash" className="light_btn w-full">
-							Feed
+							Main Feed
 						</Link>
 						<Link href="/dash/add-feed" className="light_btn w-full">
-							Add Feed
+							Add Feed URL
 						</Link>
 					</div>
 					<Footer />
