@@ -24,7 +24,6 @@ const DashLayout = ({ children }) => {
 							<span className="flex justify-center items-center gap-2 font-bold"><FaPlus /> URL</span>
 						</Link>
 					</div>
-					<Footer />
 				</aside>
 				<main className="main-section">{children}</main>
 			</div>
