@@ -33,7 +33,7 @@ const Form = ({ type, feed, setFeed, submitting, handleSubmit }) => {
 				</label>
 
 				<div className="flex-end mx-3 mb-5 gap-4">
-					<Link href="/" className="text-gray-200 hover:text-gray-100 text-sm">
+					<Link href="/dash" className="text-gray-200 hover:text-gray-100 text-sm">
 						Cancel
 					</Link>
 

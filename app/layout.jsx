@@ -23,9 +23,7 @@ const RootLayout = ({ children }) => {
 				<div className="blur-circle circle2"></div>
 				<div className="blur-circle circle3"></div>
 			</div>
-			<div className="w-full flex-grow">
-				{children}
-			</div>
+			{children}
 		</body>
 		</html>
 	)

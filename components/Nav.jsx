@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { FaUser } from "react-icons/fa";
 
 
 const Nav = () => {
@@ -36,8 +37,8 @@ const Nav = () => {
 						Add Feed
 					</Link>
 
-					<Link href="/dash/profile" className="light_btn">
-						Profile
+					<Link href="/dash/profile" className="dash-icon">
+						<FaUser />
 					</Link>
 				</div>
 			</div>
@@ -70,7 +71,7 @@ const Nav = () => {
 								className="dropdown_link"
 								onClick={() => {setToggleDropdown(false)}}
 							>
-								Profile
+								<FaUser />
 							</Link>
 						</div>
 					)}
