@@ -11,7 +11,7 @@ const DashNav = () => {
 	const [toggleDropdown, setToggleDropdown] = useState(false);
 	
 	return (
-		<nav className="top-nav flex-between md:px-4">
+		<nav className="top-nav flex-between">
 			<div className="flex gap-2 flex-center">
 				<Link href="/">
 					<Image

@@ -43,7 +43,7 @@ const AddFeed = () => {
 			if(response.ok) {
 				const responseData = await response.json();
 				await saveFeed(responseData.data);
-				router.push('/');
+				router.push('/dash');
 			}
 		} catch(error) {
 			console.log(error);

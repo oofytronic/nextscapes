@@ -51,7 +51,7 @@ export default function DashboardPage() {
     return (
         <div className="flex flex-col gap-4 flex-center">
             <h1 className="head_text text-center">
-                Feed Wall
+                Feed
             </h1>
             {articles.length === 0 ? (
                 <div className="flex flex-col gap-4">
@@ -61,7 +61,7 @@ export default function DashboardPage() {
                     </Link>
                 </div>
             ) : (
-                <div className="relative flex flex-col gap-4 flex-wrap mt-16 w-full">
+                <div className="relative flex flex-col gap-4 flex-wrap mt-4 w-full">
                     {articles.map((article, index) => (
                         <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="w-full" ><div className="flex flex-col flex-1 gap-4 w-full bg-black/50 hover:bg-white hover:text-black transition border border-gray-500 rounded-md p-6 cursor-pointer">
                             <h2 className="font-inter font-semibold">{article.title}</h2>

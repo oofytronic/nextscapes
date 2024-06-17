@@ -8,6 +8,51 @@ body {
 	color: white;
 }
 
+/* WebKit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: white transparent; /* scroll thumb and track */
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
+}
+
+/* Internet Explorer and Edge */
+body {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* For Edge (modern) */
+::-ms-scrollbar {
+    width: 10px;
+}
+
+::-ms-scrollbar-track {
+    background: transparent;
+}
+
+::-ms-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+}
+
+
 .container {
 	position: relative;
 	width: 100%;
@@ -79,19 +124,19 @@ body {
 
 /* Dash */
 .dash-container {
-  @apply grid grid-cols-12 grid-rows-12 min-h-screen;
+  @apply grid grid-cols-12 grid-rows-12 h-dvh;
 }
 
 .top-nav {
-  @apply fixed top-0 left-0 w-full h-8 bg-transparent text-white flex items-center justify-center md:relative md:h-auto md:col-span-12 md:row-span-1;
+  @apply row-start-1 row-end-2 col-span-12 bg-transparent text-white flex items-center justify-center p-4 md:relative md:h-auto md:col-span-12 md:row-span-1;
 }
 
 .sidebar {
-  @apply fixed bottom-0 left-0 w-full h-16 bg-transparent flex items-center justify-center md:relative md:flex-col md:h-auto md:col-span-2 md:row-span-11 md:mb-4;
+  @apply row-start-11 row-end-13 col-span-12 w-full bg-transparent flex flex-col gap-4 p-4 md:relative md:h-auto md:col-span-2 md:row-span-11 md:px-4;
 }
 
 .main-section {
-  @apply mt-8 md:mt-0 md:mr-4 md:mb-4 md:col-span-10 md:row-span-11 bg-black p-4 border rounded-md;
+  @apply row-start-2 row-end-11 col-span-12 overflow-y-scroll mx-4 md:ml-0 md:mt-0 md:mr-4 md:mb-4 md:col-span-10 md:row-span-11 bg-black p-4 border rounded-md;
 }
 
 

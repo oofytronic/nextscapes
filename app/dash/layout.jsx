@@ -15,12 +15,14 @@ const DashLayout = ({ children }) => {
 			<div className="dash-container">
 				<DashNav />
 				<aside className="sidebar">
-					<Link href="/dash" className="light_btn">
-						Wall
-					</Link>
-					<Link href="/dash/add-feed" className="light_btn">
-						Add Feed
-					</Link>
+					<div className="flex flex-between md:flex-col gap-4 w-full">
+						<Link href="/dash" className="light_btn w-full">
+							Feed
+						</Link>
+						<Link href="/dash/add-feed" className="light_btn w-full">
+							Add Feed
+						</Link>
+					</div>
 					<Footer />
 				</aside>
 				<main className="main-section">{children}</main>
