@@ -77,6 +77,23 @@ body {
 }
 
 
+/* Dash */
+.dash-container {
+  @apply grid grid-cols-12 grid-rows-12 min-h-screen;
+}
+
+.top-nav {
+  @apply fixed top-0 left-0 w-full h-8 bg-transparent text-white flex items-center justify-center md:relative md:h-auto md:col-span-12 md:row-span-1;
+}
+
+.sidebar {
+  @apply fixed bottom-0 left-0 w-full h-16 bg-transparent flex items-center justify-center md:relative md:flex-col md:h-auto md:col-span-2 md:row-span-11 md:mb-4;
+}
+
+.main-section {
+  @apply mt-8 md:mt-0 md:mr-4 md:mb-4 md:col-span-10 md:row-span-11 bg-black p-4 border rounded-md;
+}
+
 
 @media screen and (max-width: 640px) {
 	.main {

@@ -5,7 +5,7 @@ import { initDB, getAllFeedsFromDB } from '@utils/database';
 import Link from 'next/link';
 
 
-export default function WallPage() {
+export default function DashboardPage() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
 

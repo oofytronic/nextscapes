@@ -10,7 +10,7 @@ const FeedCardList = ({ data, handleTagClick }) => {
 		<>
 		{data.length === 0 ? (
 			<div>
-				<Link href="/add-feed" className="light_btn">
+				<Link href="/dash/add-feed" className="light_btn">
 					Add Feed
 				</Link>
 			</div>
