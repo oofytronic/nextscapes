@@ -132,11 +132,11 @@ body {
 }
 
 .sidebar {
-  @apply row-start-11 row-end-13 col-span-12 w-full bg-transparent flex flex-col gap-4 p-4 md:relative md:h-auto md:col-span-2 md:row-span-11 md:px-4;
+  @apply row-start-12 row-end-13 col-span-12 w-full bg-transparent flex flex-col gap-4 p-4 md:relative md:h-auto md:col-span-2 md:row-span-11 md:px-4;
 }
 
 .main-section {
-  @apply row-start-2 row-end-11 col-span-12 overflow-y-scroll mx-4 md:ml-0 md:mt-0 md:mr-4 md:mb-4 md:col-span-10 md:row-span-11 bg-black p-4 border rounded-md;
+  @apply row-start-2 row-end-12 col-span-12 overflow-y-scroll mx-4 md:ml-0 md:mt-0 md:mr-4 md:mb-4 md:col-span-10 md:row-span-11 bg-black p-4 border rounded-md;
 }
 
 
