@@ -56,7 +56,7 @@ export default function DashboardPage() {
             {articles.length === 0 ? (
                 <div className="flex flex-col gap-4">
                     <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
-                    <Link href="/add-feed" className="light_btn">
+                    <Link href="/dash/add-feed" className="light_btn">
                     	Add Feed
                     </Link>
                 </div>
