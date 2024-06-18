@@ -27,34 +27,10 @@ const DashNav = () => {
 					<p className="font-satoshi font-bold text-lg">Scapes</p>
 				</Link>
 			</div>
-
-			<div className="sm:flex hidden">
-				<div className="flex gap-3 md:gap-5">
-					<Link href="/dash/profile" className="dash-icon">
-						<FaUser />
-					</Link>
-				</div>
-			</div>
-
-			<div className="sm:hidden flex relative">
-
-			<div className="flex">
-					<button className="light_btn" onClick={() => setToggleDropdown(prev => !prev)}>
-						Menu
-					</button>
-
-					{toggleDropdown && (
-						<div className="dropdown">
-							<Link
-								href="/dash/profile"
-								className="dropdown_link"
-								onClick={() => {setToggleDropdown(false)}}
-							>
-								<FaUser />
-							</Link>
-						</div>
-					)}
-				</div>
+			<div className="flex gap-3 md:gap-5">
+				<Link href="/dash/profile" className="dash-icon">
+					<FaUser />
+				</Link>
 			</div>
 		</nav>
 	)

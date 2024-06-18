@@ -9,14 +9,9 @@ const FeedCardList = ({ data, handleTagClick }) => {
 	return (
 		<>
 		{data.length === 0 ? (
-			<div>
-				<Link href="/dash/add-feed" className="light_btn">
-					Add Feed
-				</Link>
-			</div>
+			<p>Empty</p>
 		) : (
-			<div className="flex flex-col gap-4 mt-16 w-full">
-				<h2 className="font-bold text-2xl">Your Feeds</h2>
+			<div className="flex flex-col gap-4 w-full">
 				<div className="flex flex-wrap gap-4">
 					{data.map((post) => {
 						return <FeedCard
@@ -68,7 +63,7 @@ const Feed = () => {
 	}, []);
 
 	return (
-		<section className="feed">
+		<section>
 			<FeedCardList
 				data={posts}
 				handleTagClick={() => {}}

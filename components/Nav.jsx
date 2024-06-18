@@ -12,7 +12,7 @@ const Nav = () => {
 	const [toggleDropdown, setToggleDropdown] = useState(false);
 	
 	return (
-		<nav className="flex-between w-full mb-16 py-3 px-4 bg-black border rounded-full">
+		<nav className="flex-between w-full mb-16 py-3 px-4 bg-black/50 border rounded-full">
 			<div className="flex gap-2 flex-center">
 			<Link href="/">
 				<Image
@@ -31,10 +31,6 @@ const Nav = () => {
 				<div className="flex gap-3 md:gap-5">
 					<Link href="/dash" className="light_btn">
 						Dashboard
-					</Link>
-
-					<Link href="/dash/add-feed" className="light_btn">
-						Add Feed
 					</Link>
 
 					<Link href="/dash/profile" className="dash-icon">
@@ -58,13 +54,6 @@ const Nav = () => {
 								onClick={() => {setToggleDropdown(false)}}
 							>
 								Dashboard
-							</Link>
-							<Link
-								href="/dash/add-feed"
-								className="dropdown_link"
-								onClick={() => setToggleDropdown(false)}
-							>
-								Add Feed
 							</Link>
 							<Link
 								href="/dash/profile"

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import DashNav from '@components/dash/DashNav';
 import Footer from '@components/Footer';
 import { FaPlus } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
+import Feed from '@components/Feed';
 
 export const metadata = {
 	title: "Dashboard | Scapes",
@@ -17,8 +19,9 @@ const DashLayout = ({ children }) => {
 				<DashNav />
 				<aside className="sidebar">
 					<div className="flex flex-between md:flex-col gap-4 w-full">
-						<Link href="/dash" className="md:w-full text-center font-bold hover:underline">
-							Main Feed
+						<Link href="/dash" className="md:w-full text-center font-bold">
+							<span className="flex gap-2 flex-center hover:underline md:mb-4">Main Feed <FaCaretDown /></span>
+							{/*<Feed />*/}
 						</Link>
 						<Link href="/dash/add-feed" className="dash-icon">
 							<span className="flex justify-center items-center gap-2 font-bold"><FaPlus /> URL</span>
