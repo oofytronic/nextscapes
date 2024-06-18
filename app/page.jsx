@@ -15,7 +15,7 @@ const Home = () => {
 					<span className="text-gradient">Privately and Anonymously</span>
 				</h1>
 				<p className="max-w-prose">Scapes is an RSS Feed Reading application dedicated to user autonomy, data ownership, content aggregation and preserving the splendor of the World Wide Web.</p>
-				<div className="grid md:grid-cols-3 gap-4">
+				<div className="grid md:grid-cols-3 gap-4 mb-4">
 					<div className="flex flex-col gap-4 p-4 border rounded-md">
 						<p className="font-bold text-md">Privacy Protection</p>
 						<p>No user data tracking or sharing.</p>
@@ -51,10 +51,6 @@ const Home = () => {
 					<div className="flex flex-col gap-4 p-4 border rounded-md">
 						<p className="font-bold text-md">Open Source</p>
 						<p>Transparent and community-driven development.</p>
-					</div>
-					<div className="flex flex-col gap-4 p-4 border rounded-md">
-						<p className="font-bold text-md">AI-less</p>
-						<p>Scapes is dedicated to being human-first and free of invasive AI technologies.</p>
 					</div>
 				</div>
 			</section>
