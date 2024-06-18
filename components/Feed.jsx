@@ -12,7 +12,7 @@ const FeedCardList = ({ data, handleTagClick }) => {
 			<p>Empty</p>
 		) : (
 			<div className="flex flex-col gap-4 w-full">
-				<div className="flex flex-wrap gap-4">
+				<div className="flex flex-wrap gap-4 w-full">
 					{data.map((post) => {
 						return <FeedCard
 							key={post.id}
@@ -63,12 +63,10 @@ const Feed = () => {
 	}, []);
 
 	return (
-		<section>
-			<FeedCardList
-				data={posts}
-				handleTagClick={() => {}}
-			/>
-		</section>
+		<FeedCardList
+			data={posts}
+			handleTagClick={() => {}}
+		/>
 	)
 }
 
