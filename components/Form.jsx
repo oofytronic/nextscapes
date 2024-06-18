@@ -21,7 +21,7 @@ const Form = ({ type, feed, setFeed, submitting, handleSubmit }) => {
 					<span className="font-satoshi font-semibold text-base text-gray-200">
 						Tag
 						<br />
-						<span className="font-normal">Pick from a list of your collections to add this feed to or type in the name of a new collection.</span>
+						<span className="font-normal">Right now your feeds will be added to the "Main" collection, but custom collections are coming soon. Use a # to add this feed to a specific collection.</span>
 					</span>
 					<input
 						type="text"

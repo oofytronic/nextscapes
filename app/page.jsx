@@ -15,7 +15,7 @@ const Home = () => {
 					<br />
 					<span className="text-gradient">Privately and Anonymously</span>
 				</h1>
-				<p className="max-w-prose">Scapes is an RSS Feed Reading application dedicated to user autonomy, data ownership, content aggregation and preserving the splendor of the World Wide Web.</p>
+				<p className="max-w-prose">Scapes is an RSS feed reading application dedicated to user autonomy, data ownership, content aggregation and preserving the splendor of the World Wide Web.</p>
 				<Link href="/dash/add-feed" className="light_btn">
 						Add Feed
 					</Link>
@@ -54,7 +54,7 @@ const Home = () => {
 					</div>
 					<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
 						<p className="font-bold text-md">Open Code</p>
-						<p>Scapes is source-available and can be downloaded for personal use.</p>
+						<p>Scapes is source-available and downloadable for personal use.</p>
 					</div>
 				</div>
 			</section>
