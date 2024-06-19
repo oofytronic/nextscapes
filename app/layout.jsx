@@ -14,7 +14,7 @@ const RootLayout = ({ children }) => {
 			<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 			<link rel="manifest" href="/manifest.json" />
 			<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#001b2e" />
-			<meta name="msapplication-TileColor" content="#da532c" />
+			<meta name="msapplication-TileColor" content="#001b2e" />
 			<meta name="theme-color" content="#001b2e" />
 		</head>
 		<body className="min-h-dvh flex flex-col">
