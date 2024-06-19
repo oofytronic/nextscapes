@@ -67,12 +67,17 @@ export default function DashboardPage() {
                 <div className="relative flex flex-col gap-4 flex-wrap mt-4 w-full">
                     <h1 className="font-satoshi font-bold text-2xl">Main Feed</h1>
                     {articles.map((article, index) => (
-                        <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="w-full" ><div className="flex flex-col flex-1 gap-4 w-full bg-black/50 hover:bg-white hover:text-black transition border border-gray-500 rounded-md p-6 cursor-pointer">
-                            <h2 className="font-inter font-semibold">{article.title}</h2>
-                            <p className="font-satoshi font-semibold text-sm break-words">
-                                {article.link}
-                            </p>
-                        </div></a>
+                        <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="w-full" >
+                            <div className="flex justify-between items-center w-full">
+                                <div className="flex flex-col flex-1 gap-4 w-full bg-black/50 hover:bg-white hover:text-black transition border border-gray-500 rounded-md p-6 cursor-pointer">
+                                    <h2 className="font-inter font-semibold">{article.title}</h2>
+                                    <p className="font-satoshi font-semibold text-sm break-words">
+                                        {article.link}
+                                    </p>
+                                </div>
+                                {article.image ? `<img src="${article.image}" alt="${article.title}">` : ''}
+                            </div>
+                        </a>
                     ))}
                 </div>
             )}
