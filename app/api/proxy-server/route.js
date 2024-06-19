@@ -13,6 +13,8 @@ async function fetchFeed(url) {
         const xmlDoc = parser.parse(feedText);
         const firstItem = xmlDoc.rss?.channel?.item?.[0] || xmlDoc.feed?.entry?.[0];
 
+        console.log(xmlDoc.rss?.channel?.item?.[0])
+
         if (firstItem) {
             return {
                 channel: xmlDoc.rss.channel.title,

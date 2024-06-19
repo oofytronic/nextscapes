@@ -9,7 +9,6 @@ export default function DashboardPage() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeLink, setActiveLink] = useState();
-    console.log(articles)
 
     useEffect(() => {
         const fetchFeeds = async () => {
