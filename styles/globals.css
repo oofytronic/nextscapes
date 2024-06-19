@@ -22,12 +22,6 @@ body {
     border-radius: 10px;
 }
 
-/* Firefox */
-html {
-    scrollbar-width: thin; /* "auto" or "thin" */
-    scrollbar-color: white transparent; /* scroll thumb and track */
-}
-
 html {
     scrollbar-width: thin;
     scrollbar-color: white transparent;
@@ -40,7 +34,7 @@ body {
 
 /* For Edge (modern) */
 ::-ms-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-ms-scrollbar-track {
@@ -50,6 +44,25 @@ body {
 ::-ms-scrollbar-thumb {
     background-color: white;
     border-radius: 10px;
+}
+
+/* Hide scrollbar arrows */
+html {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: transparent transparent; /* For Firefox */
+}
+
+html::-webkit-scrollbar {
+    width: 8px; /* Customize scrollbar width if needed */
+    height: 8px; /* Customize scrollbar height if needed */
+}
+
+/*html::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}*/
+
+html::-webkit-scrollbar-button {
+    display: none;
 }
 
 

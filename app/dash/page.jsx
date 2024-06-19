@@ -46,14 +46,16 @@ export default function DashboardPage() {
 
     return (
         <div className="flex flex-col gap-4">
-            <nav className="sticky top-0 left-0 flex flex-col gap-2 items-start w-fit border border-gray-500 rounded-md p-4 z-10 backdrop-blur-lg">
-                <p className="font-satoshi font-bold text-lg">Collections</p>
-                <div className="flex gap-2 font-satoshi font-semibold">
-                    <button className="light_btn">Main</button>
-                    <button className="light_btn">Tech</button>
-                    <button className="light_btn">Entertainment</button>
-                </div>
-            </nav>
+            <div className="sticky top-0 left-0 w-full flex justify-end">
+                <nav className="flex flex-col gap-2 items-start w-full border border-gray-500 rounded-md p-4 z-10 backdrop-blur-lg md:w-fit md:items-end">
+                    <p className="font-satoshi font-bold text-lg">Collections</p>
+                    <div className="flex gap-2 font-satoshi font-semibold w-full overflow-x-scroll px-4 md:px-0">
+                        <button className="light_btn">Main</button>
+                        <button className="light_btn">Tech</button>
+                        <button className="light_btn">Entertainment</button>
+                    </div>
+                </nav>
+            </div>
             {articles.length === 0 ? (
                 <div className="flex flex-col gap-4">
                     <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
