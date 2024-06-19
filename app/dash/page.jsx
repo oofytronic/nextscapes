@@ -47,8 +47,8 @@ export default function DashboardPage() {
 
     return (
         <div className="flex flex-col gap-4">
-            <div className="sticky top-0 left-0 w-full flex justify-end">
-                <nav className="flex flex-col gap-2 items-start w-full border border-gray-500 rounded-md p-4 z-10 backdrop-blur-lg md:w-fit md:items-end">
+            <div className="sticky top-0 left-0 w-full flex justify-end z-10 backdrop-blur-lg">
+                <nav className="flex flex-col gap-2 items-start w-full border border-gray-500 rounded-md p-4 md:w-fit md:items-end">
                     <p className="font-satoshi font-bold text-lg">Collections</p>
                     <div className="flex gap-2 font-satoshi font-semibold w-full overflow-x-scroll px-4 md:px-0">
                         <button className="light_btn">Main</button>
