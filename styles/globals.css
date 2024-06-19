@@ -8,63 +8,27 @@ body {
 	color: white;
 }
 
-/* WebKit-based browsers (Chrome, Safari) */
+html {
+	scrollbar-color: white;
+	scrollbar-gutter: auto;
+	scrollbar-width: none;
+}
+
+/* WebKit-based browsers */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 0px;
+    height: 0px;
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
+    width: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: white;
     border-radius: 10px;
 }
-
-html {
-    scrollbar-width: thin;
-    scrollbar-color: white transparent;
-}
-
-/* Internet Explorer and Edge */
-body {
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-/* For Edge (modern) */
-::-ms-scrollbar {
-    width: 8px;
-}
-
-::-ms-scrollbar-track {
-    background: transparent;
-}
-
-::-ms-scrollbar-thumb {
-    background-color: white;
-    border-radius: 10px;
-}
-
-/* Hide scrollbar arrows */
-html {
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: transparent transparent; /* For Firefox */
-}
-
-html::-webkit-scrollbar {
-    width: 8px; /* Customize scrollbar width if needed */
-    height: 8px; /* Customize scrollbar height if needed */
-}
-
-/*html::-webkit-scrollbar-thumb {
-    background-color: transparent;
-}*/
-
-html::-webkit-scrollbar-button {
-    display: none;
-}
-
 
 .container {
 	position: relative;
