@@ -8,6 +8,7 @@ import Link from 'next/link';
 export default function DashboardPage() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [activeLink, setActiveLink] = useState();
 
     useEffect(() => {
         const fetchFeeds = async () => {
@@ -39,20 +40,20 @@ export default function DashboardPage() {
 
     if (loading) {
         return (
-            <div className="flex flex-col gap-4 flex-center">
-                <h1 className="head_text text-center">
-                    Main Feed
-                </h1>
-                <p className="font-satoshi font-semibold">Loading...</p>
-            </div>
+            <p className="font-satoshi font-semibold">Loading...</p>
         );
     }
 
     return (
-        <div className="flex flex-col gap-4 flex-center">
-            <h1 className="head_text text-center">
-               Main Feed
-            </h1>
+        <div className="flex flex-col gap-4">
+            <nav className="sticky top-0 left-0 flex flex-col gap-2 items-start w-fit border border-gray-500 rounded-md p-4 z-10 backdrop-blur-lg">
+                <p className="font-satoshi font-bold text-lg">Collections</p>
+                <div className="flex gap-2 font-satoshi font-semibold">
+                    <button className="light_btn">Main</button>
+                    <button className="light_btn">Tech</button>
+                    <button className="light_btn">Entertainment</button>
+                </div>
+            </nav>
             {articles.length === 0 ? (
                 <div className="flex flex-col gap-4">
                     <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
@@ -62,6 +63,7 @@ export default function DashboardPage() {
                 </div>
             ) : (
                 <div className="relative flex flex-col gap-4 flex-wrap mt-4 w-full">
+                    <h1 className="font-satoshi font-bold text-2xl">Main Feed</h1>
                     {articles.map((article, index) => (
                         <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="w-full" ><div className="flex flex-col flex-1 gap-4 w-full bg-black/50 hover:bg-white hover:text-black transition border border-gray-500 rounded-md p-6 cursor-pointer">
                             <h2 className="font-inter font-semibold">{article.title}</h2>

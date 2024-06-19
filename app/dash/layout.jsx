@@ -17,7 +17,7 @@ const DashLayout = ({ children }) => {
 			<div className="dash-container">
 				<DashNav />
 				<Sidebar />
-				<main className="main-section">{children}</main>
+				<main className="relative main-section">{children}</main>
 			</div>
 		</>
 	)
