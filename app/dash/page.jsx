@@ -13,6 +13,7 @@ export default function DashboardPage() {
     useEffect(() => {
         const fetchFeeds = async () => {
             try {
+                await initDB('FeedDB', 'feeds');
                 const feeds = await getAllFeedsFromDB('FeedDB', 'feeds');
                 const response = await fetch('/api/proxy-server', {
                     method: 'POST',
