@@ -3,9 +3,8 @@ import '@styles/globals.css';
 import Link from 'next/link';
 import DashNav from '@components/dash/DashNav';
 import Footer from '@components/Footer';
-import { FaPlus } from "react-icons/fa";
-import { FaCaretDown } from "react-icons/fa";
 import Feed from '@components/Feed';
+import Sidebar from '@components/dash/Sidebar';
 
 export const metadata = {
 	title: "Dashboard | Scapes",
@@ -17,19 +16,7 @@ const DashLayout = ({ children }) => {
 		<>
 			<div className="dash-container">
 				<DashNav />
-				<aside className="sidebar">
-					<div className="flex items-start md:flex-col md:items-start gap-4 w-full">
-						<div className="flex flex-col flex-start w-full">
-							<Link href="/dash" className="dash-icon text-center font-bold">
-								<span className="flex gap-2 flex-center hover:underline"><FaCaretDown /> Main Feed</span>
-							</Link>
-							{/*00<Feed />*/}
-						</div>
-						<Link href="/dash/add-feed" className="dash-icon">
-							<span className="flex justify-center items-center gap-2 font-bold"><FaPlus /> New</span>
-						</Link>
-					</div>
-				</aside>
+				<Sidebar />
 				<main className="main-section">{children}</main>
 			</div>
 		</>

@@ -132,7 +132,7 @@ body {
 }
 
 .sidebar {
-  @apply row-start-12 row-end-13 col-span-12 w-full bg-transparent flex flex-col gap-4 pt-2 px-4 pb-4 md:relative md:h-auto md:col-span-2 md:row-span-11 md:px-4;
+  @apply col-span-12 w-full bg-transparent flex flex-col gap-4 pt-2 px-4 pb-4 md:relative md:h-auto md:col-span-2 md:row-span-11 md:px-4;
 }
 
 .main-section {
