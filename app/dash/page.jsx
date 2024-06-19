@@ -9,6 +9,7 @@ export default function DashboardPage() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeLink, setActiveLink] = useState();
+    console.log(articles)
 
     useEffect(() => {
         const fetchFeeds = async () => {
@@ -59,7 +60,7 @@ export default function DashboardPage() {
             {articles.length === 0 ? (
                 <div className="flex flex-col gap-4">
                     <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
-                    <Link href="/dash/add-feed" className="light_btn">
+                    <Link href="/dash/add-feed" className="light_btn w-fit">
                     	Add Feed
                     </Link>
                 </div>
@@ -70,12 +71,13 @@ export default function DashboardPage() {
                         <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="w-full" >
                             <div className="flex justify-between items-center w-full">
                                 <div className="flex flex-col flex-1 gap-4 w-full bg-black/50 hover:bg-white hover:text-black transition border border-gray-500 rounded-md p-6 cursor-pointer">
+                                    <p className="text-sm">{article.channel}</p>
                                     <h2 className="font-inter font-semibold">{article.title}</h2>
-                                    <p className="font-satoshi font-semibold text-sm break-words">
-                                        {article.link}
+                                    <p className="font-satoshi font-semibold text-sm break-words truncate">
+                                        {article.des}
                                     </p>
                                 </div>
-                                {article.image ? `<img src="${article.image}" alt="${article.title}">` : ''}
+                                {article.image ? `<img src="${article.image.url}" alt="${article.title}">` : ''}
                             </div>
                         </a>
                     ))}

@@ -15,8 +15,10 @@ async function fetchFeed(url) {
 
         if (firstItem) {
             return {
+                channel: xmlDoc.rss.channel.title,
                 title: firstItem.title,
                 link: firstItem.link?.href || firstItem.link,
+                des: firstItem.description
             };
         }
 
