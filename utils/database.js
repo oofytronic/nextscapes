@@ -1,12 +1,14 @@
-export const initDB = async (dbName, storeName) => {
+export const initDB = async (dbName, storeNames) => {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(dbName, 1);
 
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
-            if (!db.objectStoreNames.contains(storeName)) {
-                db.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
-            }
+            storeNames.forEach(storeName => {
+                if (!db.objectStoreNames.contains(storeName)) {
+                    db.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
+                }
+            });
         };
 
         request.onsuccess = (event) => {
@@ -18,6 +20,27 @@ export const initDB = async (dbName, storeName) => {
         };
     });
 }
+
+export const deleteDB = (dbName) => {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.deleteDatabase(dbName);
+
+        request.onsuccess = () => {
+            console.log('Database deleted successfully');
+            resolve('Database deleted successfully');
+        };
+
+        request.onerror = (event) => {
+            console.error('Error deleting database:', event.target.errorCode);
+            reject('Error deleting database: ' + event.target.errorCode);
+        };
+
+        request.onblocked = () => {
+            console.warn('Database deletion blocked');
+            reject('Database deletion blocked');
+        };
+    });
+};
 
 export const addFeedToDB = async (dbName, storeName, obj) => {
     return new Promise((resolve, reject) => {
@@ -88,3 +111,19 @@ export async function fetchFirstArticleFromFeed(feedUrl) {
 
 	return null;
 }
+
+export const getAllData = (db, storeName) => {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(storeName, 'readonly');
+        const store = transaction.objectStore(storeName);
+        const request = store.getAll();
+
+        request.onsuccess = () => {
+            resolve(request.result);
+        };
+
+        request.onerror = (event) => {
+            reject('Error fetching data: ' + event.target.errorCode);
+        };
+    });
+};

@@ -16,10 +16,11 @@ const AddFeed = () => {
 
 	const saveFeed = async (data) => {
 		const dbName = 'FeedDB';
+		const stores = ['feeds', 'collections'];
 		const storeName = 'feeds';
 
 		try {
-			const db = await initDB(dbName, storeName);
+			const db = await initDB(dbName, stores);
 			const result = await addFeedToDB(dbName, storeName, data);
 			console.log('Feed added successfully with id:', result);
 		} catch (error) {

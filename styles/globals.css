@@ -129,6 +129,10 @@ html {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
 
+.btn {
+  @apply rounded-full border py-1.5 px-5 transition-all text-center text-sm font-inter flex items-center justify-center;
+}
+
 .light_btn {
   @apply rounded-full border border-white bg-white py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
