@@ -19,15 +19,15 @@ const Form = ({ type, feed, setFeed, submitting, handleSubmit }) => {
 
 				<label>
 					<span className="font-satoshi font-semibold text-base text-gray-200">
-						Tag
+						Collection
 						<br />
-						<span className="font-normal">Right now your feeds will be added to the "Main" collection, but custom collections are coming soon. Use a # to add this feed to a specific collection.</span>
+						<span className="font-normal">You have one collection, "main", by default. You can create and add a feed to a new collection below.</span>
 					</span>
 					<input
 						type="text"
 						value={feed.tag}
 						onChange={(e) => setFeed({...feed, tag: e.target.value})}
-						placeholder="#tag"
+						placeholder="collection name i.e main, tech, sports"
 						required
 						className="form_input" />
 				</label>
