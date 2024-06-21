@@ -71,9 +71,8 @@ const ProfilePage = () => {
 		        </nav>
 		    </div>
 		    <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 h-full overflow-y-auto">
-	            <h1 className="head_text text-center">
-					Coming Soon...
-				</h1>
+	            <h1 className="head_text">Profile</h1>
+	            <p className="text-2xl">Coming Soon...</p>
 				<div className="grid md:grid-cols-3 gap-4 mb-4">
 					<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
 						<p className="font-bold text-md">Usernames</p>
