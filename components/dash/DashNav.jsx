@@ -21,6 +21,7 @@ const DashNav = () => {
 						width={50}
 						height={50}
 						alt="Scapes Icon"
+						priority={true}
 					/>
 				</Link>
 				<Link href="/">

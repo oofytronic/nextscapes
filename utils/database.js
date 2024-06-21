@@ -42,30 +42,65 @@ export const deleteDB = (dbName) => {
     });
 };
 
-export const addFeedToDB = async (dbName, storeName, obj) => {
+export const getAllData = (db, storeName) => {
     return new Promise((resolve, reject) => {
+        const transaction = db.transaction(storeName, 'readonly');
+        const store = transaction.objectStore(storeName);
+        const request = store.getAll();
+
+        request.onsuccess = () => {
+            resolve(request.result);
+        };
+
+        request.onerror = (event) => {
+            reject('Error fetching data: ' + event.target.errorCode);
+        };
+    });
+};
+
+export const addFeedToDB = async (dbName, storeNames, feed) => {
+    return new Promise(async (resolve, reject) => {
         const request = indexedDB.open(dbName);
 
         request.onsuccess = (event) => {
-            const db = event.target.result;
-            const transaction = db.transaction([storeName], 'readwrite');
-            const store = transaction.objectStore(storeName);
-            const addRequest = store.add(obj);
+            try {
+                const db = event.target.result;
+                const transaction = db.transaction(storeNames, 'readwrite');
+                const feedsStore = transaction.objectStore('feeds');
+                const collectionsStore = transaction.objectStore('collections');
 
-            addRequest.onsuccess = () => {
-                resolve(addRequest.result);
-            };
+                // Check if the collection exists
+                const getRequest = collectionsStore.get(feed.collection);
+                getRequest.onsuccess = () => {
+                    if (!getRequest.result) {
+                        // Add collection if it doesn't exist
+                        collectionsStore.add({ id: feed.collection, name: feed.collection });
+                    }
 
-            addRequest.onerror = (event) => {
-                reject('Add object error: ' + event.target.errorCode);
-            };
-        };
+                    // Add the feed
+                    const addRequest = feedsStore.add(feed);
+                    addRequest.onsuccess = () => {
+                        resolve(addRequest.result);
+                    };
+
+                    addRequest.onerror = (event) => {
+                        reject('Add feed error: ' + event.target.errorCode);
+                    };
+                };
+
+                getRequest.onerror = (event) => {
+                    reject('Get collection error: ' + event.target.errorCode);
+                };
+            } catch (error) {
+                reject('Transaction error: ' + error);
+            }
+        }
 
         request.onerror = (event) => {
             reject('IndexedDB error: ' + event.target.errorCode);
         };
     });
-}
+};
 
 export const getAllFeedsFromDB = async (dbName, storeName) => {
     return new Promise((resolve, reject) => {
@@ -92,38 +127,38 @@ export const getAllFeedsFromDB = async (dbName, storeName) => {
     });
 }
 
-export async function fetchFirstArticleFromFeed(feedUrl) {
-	const response = await fetch(feedUrl);
-	const feedText = await response.text();
+// export async function fetchFirstArticleFromFeed(feedUrl) {
+// 	const response = await fetch(feedUrl);
+// 	const feedText = await response.text();
 
-	// Parse the feed (RSS, ATOM, JSONFeed) and extract the first article
-	// This is a simple example, you might need a proper feed parser library
-	const parser = new DOMParser();
-	const xmlDoc = parser.parseFromString(feedText, "application/xml");
-	const firstItem = xmlDoc.querySelector("item") || xmlDoc.querySelector("entry");
+// 	// Parse the feed (RSS, ATOM, JSONFeed) and extract the first article
+// 	// This is a simple example, you might need a proper feed parser library
+// 	const parser = new DOMParser();
+// 	const xmlDoc = parser.parseFromString(feedText, "application/xml");
+// 	const firstItem = xmlDoc.querySelector("item") || xmlDoc.querySelector("entry");
 
-	if (firstItem) {
-		return {
-			title: firstItem.querySelector("title")?.textContent,
-			link: firstItem.querySelector("link")?.textContent,
-		};
-	}
+// 	if (firstItem) {
+// 		return {
+// 			title: firstItem.querySelector("title")?.textContent,
+// 			link: firstItem.querySelector("link")?.textContent,
+// 		};
+// 	}
 
-	return null;
-}
+// 	return null;
+// }
 
-export const getAllData = (db, storeName) => {
+export const getAllCollections = (db) => {
     return new Promise((resolve, reject) => {
-        const transaction = db.transaction(storeName, 'readonly');
-        const store = transaction.objectStore(storeName);
+        const transaction = db.transaction(['collections'], 'readonly');
+        const store = transaction.objectStore('collections');
         const request = store.getAll();
 
-        request.onsuccess = () => {
-            resolve(request.result);
+        request.onsuccess = (event) => {
+            resolve(event.target.result);
         };
 
         request.onerror = (event) => {
-            reject('Error fetching data: ' + event.target.errorCode);
+            reject('Error fetching collections: ' + event.target.errorCode);
         };
     });
 };

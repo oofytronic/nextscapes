@@ -11,7 +11,7 @@ const AddFeed = () => {
 	const [ submitting, setSubmitting ] = useState(false);
 	const [ feed, setFeed ] = useState({
 		url: '',
-		tag: ''
+		collection: ''
 	});
 
 	const saveFeed = async (data) => {
@@ -21,7 +21,7 @@ const AddFeed = () => {
 
 		try {
 			const db = await initDB(dbName, stores);
-			const result = await addFeedToDB(dbName, storeName, data);
+			const result = await addFeedToDB(dbName, stores, data);
 			console.log('Feed added successfully with id:', result);
 		} catch (error) {
 			console.error('Error adding feed:', error);
@@ -37,7 +37,7 @@ const AddFeed = () => {
 				method: 'POST',
 				body: JSON.stringify({
 					url: feed.url,
-					tag: feed.tag
+					collection: feed.collection
 				})
 			});
 

@@ -25,8 +25,8 @@ const Form = ({ type, feed, setFeed, submitting, handleSubmit }) => {
 					</span>
 					<input
 						type="text"
-						value={feed.tag}
-						onChange={(e) => setFeed({...feed, tag: e.target.value})}
+						value={feed.collection}
+						onChange={(e) => setFeed({...feed, collection: e.target.value})}
 						placeholder="collection name i.e main, tech, sports"
 						required
 						className="form_input" />
