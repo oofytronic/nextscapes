@@ -60,37 +60,41 @@ const ProfilePage = () => {
 	}
 
 	return (
-		<section className="w-full flex-center flex-col gap-8">
-		<nav className="flex flex-col gap-2 items-start w-full border border-gray-500 rounded-md p-4 backdrop-blur-lg md:items-end">
-                    <p className="font-satoshi font-bold text-lg">Actions</p>
+		<div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full h-full">
+		    <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2">
+		        <nav className="flex flex-col gap-2 items-start w-full md:items-end">
+		            <p className="font-satoshi font-bold text-lg">Actions</p>
                     <div className="flex md:justify-end gap-2 font-satoshi font-semibold w-full overflow-x-scroll">
                     	<button className="light_btn" onClick={handleExportData}>Export Data</button>
                         <button className="btn bg-rose-500 hover:bg-rose-900" onClick={handleDeleteData}>Delete Data</button>
                     </div>
-                </nav>
-			<h1 className="head_text text-center">
-				Coming Soon...
-			</h1>
-			<div className="grid md:grid-cols-3 gap-4 mb-4">
-				<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
-					<p className="font-bold text-md">Usernames</p>
-					<p>@username as well as domains like you@domain.com</p>
+		        </nav>
+		    </div>
+		    <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 h-full overflow-y-auto">
+	            <h1 className="head_text text-center">
+					Coming Soon...
+				</h1>
+				<div className="grid md:grid-cols-3 gap-4 mb-4">
+					<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
+						<p className="font-bold text-md">Usernames</p>
+						<p>@username as well as domains like you@domain.com</p>
+					</div>
+					<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
+						<p className="font-bold text-md">Data Migration</p>
+						<p>Move your Scapes data to another device with QR code or E2E URL</p>
+					</div>
+					<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
+						<p className="font-bold text-md">Device Sync</p>
+						<p>Sync Scapes data across devices using peer-to-peer technologies</p>
+					</div>
+					<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
+						<p className="font-bold text-md">Multiplayer</p>
+						<p>Add users to your Scape and assign roles</p>
+					</div>
 				</div>
-				<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
-					<p className="font-bold text-md">Data Migration</p>
-					<p>Move your Scapes data to another device with QR code or E2E URL</p>
-				</div>
-				<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
-					<p className="font-bold text-md">Device Sync</p>
-					<p>Sync Scapes data across devices using peer-to-peer technologies</p>
-				</div>
-				<div className="flex flex-col gap-4 p-4 border rounded-md bg-black/50">
-					<p className="font-bold text-md">Multiplayer</p>
-					<p>Add users to your Scape and assign roles</p>
-				</div>
-			</div>
-		</section>
-	)
+	        </div>
+		</div>
+	);
 }
 
 export default ProfilePage;

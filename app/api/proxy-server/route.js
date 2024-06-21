@@ -8,35 +8,6 @@ const options = {
 
 const parser = new XMLParser(options);
 
-// async function fetchFeed(url) {
-//     try {
-//         const response = await fetch(url);
-//         if (!response.ok) {
-//             throw new Error('Failed to fetch feed');
-//         }
-//         const feedText = await response.text();
-//         const xmlDoc = parser.parse(feedText);
-//         const firstItem = xmlDoc.rss?.channel?.item?.[0] || xmlDoc.feed?.entry?.[0];
-
-//         console.log(xmlDoc.rss?.channel?.item?.[0])
-
-//         if (firstItem) {
-//             return {
-//                 channel: xmlDoc.rss.channel.title,
-//                 title: firstItem.title,
-//                 link: firstItem.link?.href || firstItem.link,
-//                 des: firstItem.description
-//             };
-//         }
-
-//         return null;
-//     } catch (error) {
-//         console.error('Error fetching feed:', error);
-//         return null;
-//     }
-// }
-//
-
 async function fetchFeed(url) {
     try {
         const response = await fetch(url);
