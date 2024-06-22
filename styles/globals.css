@@ -113,7 +113,7 @@ html {
 }
 
 .main-section {
-  @apply row-start-2 row-end-12 col-span-12 overflow-y-scroll mx-4 md:ml-0 md:mt-0 md:mr-4 md:mb-4 md:col-span-10 md:row-span-11 bg-transparent p-4 border rounded-md;
+  @apply row-start-2 row-end-12 col-span-12 overflow-y-scroll mx-4 md:ml-0 md:mt-0 md:mr-4 md:mb-4 md:col-span-10 md:row-span-11 bg-transparent px-4 border rounded-md;
 }
 
 

@@ -2,12 +2,12 @@ import Link from 'next/link';
 
 const Form = ({ type, feed, setFeed, submitting, handleSubmit }) => {
 	return (
-		<section className="w-full max-w-full flex-center flex-col">
+		<section className="w-full flex flex-col gap-4">
 			<h1 className="head_text">{type} Feed</h1>
 
-			<form onSubmit={handleSubmit} className="mt-10 w-full max-w-2xl flex flex-col gap-7 bg-black/50 text-white rounded-md p-6">
+			<form onSubmit={handleSubmit} className="w-full flex flex-col gap-7 bg-black/50 text-white rounded-md p-6">
 				<label>
-					<span className="font-satoshi font-semibold text-base text-gray-200">Your Feed URL</span>
+					<span className="font-satoshi font-semibold text-base text-gray-200">Feed URL</span>
 					<input
 						type="url"
 						value={feed.url}
@@ -21,7 +21,7 @@ const Form = ({ type, feed, setFeed, submitting, handleSubmit }) => {
 					<span className="font-satoshi font-semibold text-base text-gray-200">
 						Collection
 						<br />
-						<span className="font-normal">You have one collection, "main", by default. You can create and add a feed to a new collection below.</span>
+						<span className="font-normal">Create a collection or add to an existing one.</span>
 					</span>
 					<input
 						type="text"
