@@ -82,7 +82,7 @@ export default function DashboardPage() {
 		        </nav>
 		    </div>
 		    {articles.length === 0 ? (
-		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1">
+		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1 py-4">
 		            <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
 		            <Link href="/dash/add-feed" className="light_btn w-fit">
 		                Add Feed
