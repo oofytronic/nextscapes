@@ -67,7 +67,7 @@ export default function DashboardPage() {
 
     return (
 		<div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
-		    <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 py-4 border-b md:border-b-none md:border-l">
+		    <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 py-4 md:pl-4 border-b md:border-b-none md:border-l">
 		        <nav className="flex flex-col gap-2 items-start w-full md:items-end">
 		            <p className="font-satoshi font-bold text-lg">Collections</p>
 		            <div className="flex gap-2 font-satoshi font-semibold w-full overflow-x-scroll md:flex-wrap md:justify-end">
