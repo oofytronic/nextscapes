@@ -68,8 +68,15 @@ export default function DashboardPage() {
 
     return (
 		<div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
-		    <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 flex flex-col gap-4 py-4 md:pl-4 border-b md:border-b-none md:border-l">
-		        <div className="flex flex-col gap-2 items-start w-full md:items-end">
+		    <div className="md:col-span-1 order-1 md:order-2 flex flex-col md:items-end gap-4 py-4 md:pl-4 border-b md:border-b-none md:border-l overflow-y-scroll">
+                <p className="font-satoshi font-bold text-lg">Feeds</p>
+                <div className="max-h-24 md:max-h-full flex gap-2 font-satoshi font-semibold w-full md:flex-wrap md:justify-end">
+                    <Feed />
+                </div>
+
+
+
+		        {/*<div className="flex flex-col gap-2 items-start w-full md:items-end">
 		            <p className="font-satoshi font-bold text-lg">Collections</p>
 		            <div className="flex gap-2 font-satoshi font-semibold w-full overflow-x-scroll md:flex-wrap md:justify-end">
 		                {collections.length > 0 ? (
@@ -80,14 +87,11 @@ export default function DashboardPage() {
 		                    <p className="font-satoshi text-sm">No Collections Yet...</p>
 		                )}
 		            </div>
-		        </div>
+		        </div>*/}
 
-                <div className="flex flex-col gap-2 items-start w-full md:items-end">
-                    <p className="font-satoshi font-bold text-lg">Feeds</p>
-                    <div className="max-h-24 md:max-h-96 flex gap-2 font-satoshi font-semibold w-full overflow-y-scroll md:flex-wrap md:justify-end">
-                        <Feed />
-                    </div>
-                </div>
+                {/*<div className="flex flex-col gap-2 items-start w-full md:items-end">
+
+                </div>*/}
 		    </div>
 		    {articles.length === 0 ? (
 		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1 py-4">

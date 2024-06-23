@@ -19,7 +19,7 @@ const Sidebar = () => {
 				<div className="flex flex-col flex-start w-full">
 					<div className="flex gap-2 items-center">
 						<Link href="/dash" className="dash-icon text-center font-bold">
-							<span className="flex gap-2 flex-center hover:underline">Feeds</span>
+							<span className="flex gap-2 flex-center hover:underline">Home</span>
 						</Link>
 					</div>
 				</div>
