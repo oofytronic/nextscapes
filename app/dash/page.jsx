@@ -10,24 +10,6 @@ export default function DashboardPage() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeLink, setActiveLink] = useState();
-    const [collections, setCollections] = useState([]);
-
-    useEffect(() => {
-        const fetchCollections = async () => {
-            const dbName = 'FeedDB';
-            const storeNames = ['feeds', 'collections'];
-
-            try {
-                const db = await initDB(dbName, storeNames);
-                const collections = await getAllCollections(db);
-                setCollections(collections);
-            } catch (error) {
-                console.error('Error fetching collections:', error);
-            }
-        };
-
-        fetchCollections();
-    }, []);
 
     useEffect(() => {
         const fetchFeeds = async () => {
@@ -70,28 +52,9 @@ export default function DashboardPage() {
 		<div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
 		    <div className="md:col-span-1 order-1 md:order-2 flex flex-col md:items-end gap-4 py-4 md:pl-4 border-b md:border-b-none md:border-l overflow-y-scroll">
                 <p className="font-satoshi font-bold text-lg">Feeds</p>
-                <div className="max-h-24 md:max-h-full flex gap-2 font-satoshi font-semibold w-full md:flex-wrap md:justify-end">
+                <div className="max-h-20 md:max-h-full flex gap-2 font-satoshi font-semibold w-full md:flex-wrap md:justify-end">
                     <Feed />
                 </div>
-
-
-
-		        {/*<div className="flex flex-col gap-2 items-start w-full md:items-end">
-		            <p className="font-satoshi font-bold text-lg">Collections</p>
-		            <div className="flex gap-2 font-satoshi font-semibold w-full overflow-x-scroll md:flex-wrap md:justify-end">
-		                {collections.length > 0 ? (
-		                    collections.map((collection) => (
-		                        <button className="light_btn" key={collection.id}>{collection.name}</button>
-		                    ))
-		                ) : (
-		                    <p className="font-satoshi text-sm">No Collections Yet...</p>
-		                )}
-		            </div>
-		        </div>*/}
-
-                {/*<div className="flex flex-col gap-2 items-start w-full md:items-end">
-
-                </div>*/}
 		    </div>
 		    {articles.length === 0 ? (
 		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1 py-4">
