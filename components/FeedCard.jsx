@@ -10,7 +10,7 @@ const FeedCard = ({ post, handleTagClick, handleDelete }) => {
 		<div className="flex flex-col flex-shrink-0 gap-4 p-4 border border-gray-500 rounded-md bg-black/50 hover:bg-white hover:text-black cursor-pointer w-full">
 			<div className="flex justify-between items-start gap-2 w-full">
 				<FeedIcon siteUrl={post.url} />
-				<p className="font-satoshi font-semibold text-gray-100 truncate break-words text-xs w-full">{post.url}</p>
+				<p className="font-satoshi font-semibold truncate break-words text-xs w-full">{post.url}</p>
 			</div>
 		</div>
 	)

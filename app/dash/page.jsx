@@ -84,7 +84,7 @@ export default function DashboardPage() {
 
                 <div className="flex flex-col gap-2 items-start w-full md:items-end">
                     <p className="font-satoshi font-bold text-lg">Feeds</p>
-                    <div className="max-h-24 md:max-h-48 flex gap-2 font-satoshi font-semibold w-full overflow-x-scroll md:flex-wrap md:justify-end">
+                    <div className="max-h-24 md:max-h-96 flex gap-2 font-satoshi font-semibold w-full overflow-y-scroll md:flex-wrap md:justify-end">
                         <Feed />
                     </div>
                 </div>
