@@ -1,6 +1,7 @@
 import '@styles/globals.css';
 
 import Link from 'next/link';
+import DashContainer from '@components/dash/DashContainer';
 import DashNav from '@components/dash/DashNav';
 import Sidebar from '@components/dash/Sidebar';
 
@@ -11,13 +12,11 @@ export const metadata = {
 
 const DashLayout = ({ children }) => {
 	return (
-		<>
-			<div className="dash-container">
-				<DashNav />
-				<Sidebar />
-				<main className="relative main-section">{children}</main>
-			</div>
-		</>
+		<DashContainer>
+			<DashNav />
+			<Sidebar collections={collections} isExpanded={isExpanded} toggleMenu={toggleMenu} />
+			<main className={`main-section ${isExpanded ? 'row-end-10' : 'row-end-12'} md:row-end-auto`}>{children}</main>
+		</DashContainer>
 	)
 }
 

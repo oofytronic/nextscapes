@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaGear } from "react-icons/fa6";
 
 
 
@@ -28,7 +28,10 @@ const DashNav = () => {
 					<p className="font-satoshi font-bold text-lg">Scapes</p>
 				</Link>
 			</div>
-			<div className="flex gap-3 md:gap-5">
+			<div className="flex gap-3 md:gap-4">
+				<Link href="/dash/settings" className="dash-icon">
+					<FaGear />
+				</Link>
 				<Link href="/dash/profile" className="dash-icon">
 					<FaUser />
 				</Link>
