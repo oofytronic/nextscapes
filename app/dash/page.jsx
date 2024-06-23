@@ -77,7 +77,7 @@ export default function DashboardPage() {
 		                        <button className="light_btn" key={collection.id}>{collection.name}</button>
 		                    ))
 		                ) : (
-		                    <p>No Collection Yet...</p>
+		                    <p className="font-satoshi text-sm">No Collections Yet...</p>
 		                )}
 		            </div>
 		        </div>
@@ -91,14 +91,14 @@ export default function DashboardPage() {
 		    </div>
 		    {articles.length === 0 ? (
 		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1 py-4">
-		            <p className="font-satoshi font-semibold">No articles found. Please add feeds.</p>
+		            <p className="font-satoshi font-semibold text-sm">No articles found. Please add feeds.</p>
 		            <Link href="/dash/add-feed" className="light_btn w-fit">
 		                Add Feed
 		            </Link>
 		        </div>
 		    ) : (
 		        <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 h-full overflow-y-auto">
-		            <h1 className="font-satoshi font-bold head_text">Main Feed</h1>
+		            <h1 className="font-satoshi font-bold head_text">Main Collection</h1>
 		            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
 		                {articles.map((article, index) => (
 		                    <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="h-full w-full">

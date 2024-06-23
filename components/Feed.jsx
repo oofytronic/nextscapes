@@ -9,7 +9,7 @@ const FeedCardList = ({ data, handleTagClick }) => {
 	return (
 		<>
 		{data.length === 0 ? (
-			<p>Empty</p>
+			<p className="font-satoshi text-sm">Empty</p>
 		) : (
 				<div className="flex flex-wrap justify-end gap-4 w-full">
 					{data.map((post) => {
