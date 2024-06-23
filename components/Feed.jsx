@@ -11,8 +11,7 @@ const FeedCardList = ({ data, handleTagClick }) => {
 		{data.length === 0 ? (
 			<p>Empty</p>
 		) : (
-			<div className="flex flex-col gap-4 w-full">
-				<div className="flex flex-wrap gap-4 w-full">
+				<div className="flex flex-wrap justify-end gap-4 w-full">
 					{data.map((post) => {
 						return <FeedCard
 							key={post.id}
@@ -21,7 +20,6 @@ const FeedCardList = ({ data, handleTagClick }) => {
 						/>
 					})}
 				</div>
-			</div>
 		)}
 		</>
 	)
