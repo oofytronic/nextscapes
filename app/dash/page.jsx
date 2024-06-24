@@ -1,19 +1,22 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { initDB, getAllFeedsFromDB, getAllCollections } from '@utils/database';
 import Link from 'next/link';
 import Feed from '@components/Feed';
+import {DashContext} from '@components/dash/DashContext';
 
 
 export default function DashboardPage() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeLink, setActiveLink] = useState();
+    const { fetchCollections } = useContext(DashContext);
 
     useEffect(() => {
         const fetchFeeds = async () => {
             try {
+            	await fetchCollections();
                 await initDB('FeedDB', ['feeds', 'collections']);
                 const feeds = await getAllFeedsFromDB('FeedDB', 'feeds');
                 const response = await fetch('/api/proxy-server', {

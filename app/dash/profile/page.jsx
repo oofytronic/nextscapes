@@ -1,8 +1,11 @@
 'use client';
 
+import { useContext } from 'react';
 import { initDB, deleteDB, getAllData } from '@utils/database.js';
+import {DashContext} from '@components/dash/DashContext';
 
 const ProfilePage = () => {
+	const { fetchCollections } = useContext(DashContext);
 
 	const downloadJSON = (jsonString, filename) => {
 		const blob = new Blob([jsonString], { type: 'application/json' });
@@ -52,6 +55,7 @@ const ProfilePage = () => {
                     alert(message);
                     console.log(message);
                 })
+                .then(fetchCollections())
                 .catch(error => {
                 	alert(error);
                     console.error(error);

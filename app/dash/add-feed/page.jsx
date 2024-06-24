@@ -1,15 +1,17 @@
 'use client';
 
 import { initDB, addFeedToDB } from '@utils/database';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import Form from '@components/Form';
 import CurationFeed from '@components/CurationFeed';
+import {DashContext} from '@components/dash/DashContext';
 
 const AddFeed = () => {
     const router = useRouter();
+    const { fetchCollections } = useContext(DashContext);
     const [submitting, setSubmitting] = useState(false);
     const [feed, setFeed] = useState({
         url: '',
@@ -45,6 +47,7 @@ const AddFeed = () => {
             if (response.ok) {
                 const responseData = await response.json();
                 await saveFeed(responseData.data);
+                await fetchCollections();
                 router.push('/dash');
             }
         } catch (error) {

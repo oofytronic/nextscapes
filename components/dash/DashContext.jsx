@@ -13,25 +13,25 @@ export const DashProvider = ({ children }) => {
     setIsExpanded(!isExpanded);
   };
 
+  const fetchCollections = async () => {
+    const dbName = 'FeedDB';
+    const storeNames = ['feeds', 'collections'];
+
+    try {
+      const db = await initDB(dbName, storeNames);
+      const collections = await getAllCollections(db);
+      setCollections(collections);
+    } catch (error) {
+      console.error('Error fetching collections:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchCollections = async () => {
-      const dbName = 'FeedDB';
-      const storeNames = ['feeds', 'collections'];
-
-      try {
-        const db = await initDB(dbName, storeNames);
-        const collections = await getAllCollections(db);
-        setCollections(collections);
-      } catch (error) {
-        console.error('Error fetching collections:', error);
-      }
-    };
-
     fetchCollections();
   }, []);
 
   return (
-    <DashContext.Provider value={{ collections, isExpanded, toggleMenu }}>
+    <DashContext.Provider value={{ collections, isExpanded, fetchCollections, toggleMenu }}>
       {children}
     </DashContext.Provider>
   );
