@@ -3,6 +3,7 @@
 import { initDB, addFeedToDB } from '@utils/database';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 import Form from '@components/Form';
 import CurationFeed from '@components/CurationFeed';
@@ -91,7 +92,14 @@ const AddFeed = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {categories.map((category, index) => (
                     <div key={index} className="relative w-full h-64 rounded-md hover:filter hover:sepia transition-all cursor-pointer">
-                      <img src={category.image} alt={category.title} className="object-cover w-full h-full rounded-md" />
+                        <Image
+                          src={category.image}
+                          alt={category.title}
+                          width={500}
+                          height={500}
+                          className="object-cover w-full h-full rounded-md"
+                          priority
+                        />
                       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-md">
                         <p className="text-white font-bold text-lg">{category.title}</p>
                       </div>
