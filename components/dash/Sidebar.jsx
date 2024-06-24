@@ -22,12 +22,9 @@ const Sidebar = () => {
 
 				<div className="flex flex-col items-center md:items-start gap-2 md:w-full">
 					<div className="flex gap-2 items-center">
-						<p className="font-satoshi font-bold">Collections</p>
-			            <button 
-							className="md:hidden flex items-center gap-1 text-gray-500 focus:outline-none"
-							onClick={toggleMenu}
-						>
-			            	{isExpanded ? <FaChevronUp className="h-4 w-4 text-white" /> : <FaChevronDown className="h-4 w-4 text-white" />}
+			            <button className="flex items-center gap-1 text-white focus:outline-none" onClick={toggleMenu}>
+			            	<p className="font-satoshi font-bold">Collections</p>
+			            	{isExpanded ? <FaChevronUp className="h-4 w-4 text-white md:hidden" /> : <FaChevronDown className="h-4 w-4 text-white md:hidden" />}
 			            </button>
 					</div>
 
