@@ -1,14 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { initDB, getAllCollections } from '@utils/database';
 import { FaPlus, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { DashContext } from './DashContext';
 
-const Sidebar = ({ collections, isExpanded, toggleMenu }) => {
+const Sidebar = () => {
+  const { collections, isExpanded, toggleMenu } = useContext(DashContext);
 
 	return (
-		<aside className={`sidebar grid ${isExpanded ? 'row-start-10 row-end-12' : 'row-start-12 row-end-13'} md:row-start-auto md:row-end-auto`}>
+		<aside className={`sidebar grid ${isExpanded ? 'row-start-11 row-end-13' : 'row-start-12 row-end-13'} md:row-start-auto md:row-end-auto`}>
 			<div className="flex items-center justify-between md:flex-col md:items-start gap-4 w-full">
 				<div className="flex flex-col flex-start md:w-full">
 					<div className="flex gap-2 items-center">
