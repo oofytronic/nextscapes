@@ -16,7 +16,8 @@ const CurationFeed = ({ children, feed, setFeed }) => {
         { title: 'ESPN Boxing', url: 'https://www.espn.com/espn/rss/boxing/news' },
         { title: 'EDM.com', url: 'https://edm.com/.rss/full/' },
         { title: 'AutoSport | Formula 1', url: 'https://www.autosport.com/rss/f1/news/' },
-        { title: 'Bankless', url: 'https://www.bankless.com/rss/feed'}
+        { title: 'Bankless', url: 'https://www.bankless.com/rss/feed'},
+        { title: 'Uncharted Territories', url: 'https://unchartedterritories.tomaspueyo.com/feed'}
     ];
 
     return (
