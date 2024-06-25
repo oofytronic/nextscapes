@@ -13,7 +13,7 @@ export default function DashboardPage() {
     const [loading, setLoading] = useState(true);
     const [activeLink, setActiveLink] = useState();
     const { fetchCollections } = useContext(DashContext);
-    const [isFeedsExpanded, setIsFeedsExpanded] = useState(true);
+    const [isFeedsExpanded, setIsFeedsExpanded] = useState(false);
 
     const toggleFeeds = () => {
         setIsFeedsExpanded(!isFeedsExpanded);
@@ -59,24 +59,26 @@ export default function DashboardPage() {
 
     return (
 		<div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
-		    <div className="md:col-span-1 order-1 md:order-2 flex flex-col md:items-end gap-4 py-4 md:pl-4 border-b md:border-b-none md:border-l overflow-y-scroll">
-                <button className="flex items-center gap-1 text-white focus:outline-none" onClick={toggleFeeds}>
-                    <p className="font-satoshi font-bold text-lg">Feeds</p>
-                    {isFeedsExpanded ? <FaChevronUp className="h-4 w-4 text-white md:hidden" /> : <FaChevronDown className="h-4 w-4 text-white md:hidden" />}
-                </button>
-                <div className="max-h-20 md:max-h-full flex gap-2 font-satoshi font-semibold w-full md:flex-wrap md:justify-end">
+		    <div className={`md:col-span-1 order-1 md:order-2 flex flex-col md:items-end gap-4 border-b md:border-b-none md:border-l ${isFeedsExpanded && 'pb-4'} overflow-y-scroll`}>
+                <div className={`sticky top-0 right-0 bg-black/50 backdrop-blur p-4 ${isFeedsExpanded && 'border-b'} rounded md:border-b w-full flex justify-end`}>
+                    <button className="flex items-center gap-1 text-white focus:outline-none" onClick={toggleFeeds}>
+                        <p className="font-satoshi font-bold text-lg">Feeds</p>
+                        {isFeedsExpanded ? <FaChevronUp className="h-4 w-4 text-white md:hidden" /> : <FaChevronDown className="h-4 w-4 text-white md:hidden" />}
+                    </button>
+                </div>
+                <div className={`${!isFeedsExpanded && 'hidden'} md:flex md:max-h-full flex gap-2 font-satoshi font-semibold w-full md:flex-wrap md:justify-end`}>
                     <Feed />
                 </div>
 		    </div>
 		    {articles.length === 0 ? (
-		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1 py-4">
+		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1 py-4 pl-4">
 		            <p className="font-satoshi font-semibold text-sm">No articles found. Please add feeds.</p>
 		            <Link href="/dash/add-feed" className="light_btn w-fit">
 		                Add Feed
 		            </Link>
 		        </div>
 		    ) : (
-		        <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 h-full overflow-y-auto">
+		        <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 px-4 md:pr-0 h-full overflow-y-auto">
 		            <h1 className="font-satoshi font-bold head_text">Main Collection</h1>
 		            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
 		                {articles.map((article, index) => (

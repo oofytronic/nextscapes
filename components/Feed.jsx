@@ -9,9 +9,9 @@ const FeedCardList = ({ data, handleTagClick }) => {
 	return (
 		<>
 		{data.length === 0 ? (
-			<p className="font-satoshi text-sm">Empty</p>
+			<p className="font-satoshi text-sm px-4 pb-4">Empty</p>
 		) : (
-				<div className="flex flex-wrap justify-end gap-4 w-full">
+				<div className="flex flex-wrap justify-end gap-4 w-full px-4 pb-4">
 					{data.map((post) => {
 						return <FeedCard
 							key={post.id}
