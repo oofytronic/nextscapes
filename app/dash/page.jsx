@@ -61,8 +61,8 @@ export default function DashboardPage() {
 		<div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
 		    <div className={`md:col-span-1 order-1 md:order-2 flex flex-col md:items-end gap-4 border-b md:border-b-none md:border-l ${isFeedsExpanded && 'pb-4'} overflow-y-scroll`}>
                 <div className={`sticky top-0 right-0 bg-black/50 backdrop-blur p-4 ${isFeedsExpanded && 'border-b'} rounded md:border-b w-full flex justify-end`}>
-                    <button className="flex items-center gap-1 text-white focus:outline-none" onClick={toggleFeeds}>
-                        <p className="font-satoshi font-bold text-lg">Feeds</p>
+                    <button className="flex items-center gap-1 text-white focus:outline-none md:pointer-events-none" onClick={toggleFeeds}>
+                        <p className="font-satoshi font-bold text-lg">Scapes</p>
                         {isFeedsExpanded ? <FaChevronUp className="h-4 w-4 text-white md:hidden" /> : <FaChevronDown className="h-4 w-4 text-white md:hidden" />}
                     </button>
                 </div>
@@ -74,7 +74,7 @@ export default function DashboardPage() {
 		        <div className="flex flex-col gap-4 md:col-span-3 order-2 md:order-1 py-4 pl-4">
 		            <p className="font-satoshi font-semibold text-sm">No articles found. Please add feeds.</p>
 		            <Link href="/dash/add-feed" className="light_btn w-fit">
-		                Add Feed
+		                Add Scape
 		            </Link>
 		        </div>
 		    ) : (
