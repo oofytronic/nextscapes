@@ -67,9 +67,9 @@ const AddFeed = () => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
-            <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 py-4 md:pl-4 border-b md:border-b-none md:border-l">
-                <nav className="flex flex-col gap-2 items-start w-full md:items-end">
-                    <p className="font-satoshi font-bold text-lg">Scapes Recommends</p>
+            <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 py-4 px-4 md:pl-4 border-b md:border-b-none md:border-l">
+                <nav className="flex flex-col gap-4 items-start w-full md:items-end">
+                    <p className="font-satoshi font-bold text-lg">Featured Scapes</p>
                     <CurationFeed feed={feed} setFeed={setFeed}>
                         <Form
                             type="Add"
@@ -82,8 +82,8 @@ const AddFeed = () => {
                     </CurationFeed>
                 </nav>
             </div>
-            <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 h-full overflow-y-auto">            
-                <h1 className="head_text">Add Feed</h1>
+            <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 px-4 md:pr-0 h-full overflow-y-auto">
+                <h1 className="head_text">Add Scape</h1>
                 <Form
                     type="Add"
                     feed={feed}

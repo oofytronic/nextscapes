@@ -51,7 +51,7 @@ export default function DashboardPage() {
 
     if (loading) {
         return (
-            <div className="py-4">
+            <div className="p-4">
                 <p className="font-satoshi font-semibold">Loading...</p>
             </div>
         );
@@ -83,7 +83,7 @@ export default function DashboardPage() {
 		            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
 		                {articles.map((article, index) => (
 		                    <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="h-full w-full">
-		                        <div className="flex flex-col gap-4 bg-black/50 hover:bg-white hover:text-black transition border border-gray-500 rounded-md p-6 cursor-pointer h-full">
+		                        <div className="flex flex-col gap-4 bg-black/50 hover:bg-black transition border border-gray-500 rounded-md p-6 cursor-pointer h-full">
 		                            {article.image && (
 		                                <img src={article.image} alt={article.title} className="w-full h-auto object-contain rounded-md" />
 		                            )}
