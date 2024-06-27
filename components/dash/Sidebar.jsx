@@ -2,12 +2,36 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useContext } from 'react';
-import { initDB, getAllCollections } from '@utils/database';
+import { initDB, fetchFeedsByCollection } from '@utils/database';
 import { FaPlus, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { DashContext } from './DashContext';
 
 const Sidebar = () => {
   const { collections, isExpanded, toggleMenu } = useContext(DashContext);
+
+  const fetchCollectionFeeds = async () => {
+        try {
+            const feeds = await fetchFeedsByCollection('FeedDB', 'feeds');
+            const response = await fetch('/api/proxy-server', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(feeds),
+            });
+
+            if (response.ok) {
+                const articles = await response.json();
+                setArticles(articles);
+            } else {
+                console.error('Failed to fetch articles:', await response.json());
+            }
+        } catch (error) {
+            console.error('Error fetching feeds:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
 	return (
 		<aside className={`sidebar grid ${isExpanded ? 'row-start-11 row-end-13' : 'row-start-12 row-end-13'} md:row-start-auto md:row-end-auto`}>
@@ -31,7 +55,7 @@ const Sidebar = () => {
 					<div className="hidden md:flex gap-2 font-satoshi font-semibold w-full overflow-x-scroll md:flex-wrap">
 		                {collections.length > 0 ? (
 		                    collections.map((collection) => (
-		                        <button className="btn hover:bg-white hover:text-black" key={collection.id}>{collection.name}</button>
+		                        <button className="btn hover:bg-white hover:text-black" key={collection.id} data-collection={collection.name}>{collection.name}</button>
 		                    ))
 		                ) : (
 		                    <p className="font-satoshi text-sm">No Collections Yet...</p>

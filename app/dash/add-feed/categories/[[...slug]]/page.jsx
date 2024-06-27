@@ -4,13 +4,12 @@ import { initDB, addFeedToDB } from '@utils/database';
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Form from '@components/Form';
 import CurationFeed from '@components/CurationFeed';
 import {DashContext} from '@components/dash/DashContext';
 
-const AddFeed = () => {
+const Category = ( {params}) => {
     const router = useRouter();
     const { fetchCollections } = useContext(DashContext);
     const [submitting, setSubmitting] = useState(false);
@@ -18,6 +17,8 @@ const AddFeed = () => {
         url: '',
         collection: ''
     });
+
+    const category = params.slug[0];
 
     const saveFeed = async (data) => {
         const dbName = 'FeedDB';
@@ -59,11 +60,22 @@ const AddFeed = () => {
     }
 
     const categories = [
-        {title: 'Technology', image: '/technology.jpg', path: '/dash/add-feed/categories/technology'},
-        {title: 'Business', image: '/business.jpg', path: '/dash/add-feed/categories/business'},
-        {title: 'Sports', image: '/sports.jpg', path: '/dash/add-feed/categories/sports'},
-        {title: 'Entertainment', image: '/entertainment.jpg', path: '/dash/add-feed/categories/entertainment'},
-        {title: 'Music', image: '/music.jpg', path: '/dash/add-feed/categories/music'}
+        {title: 'Technology', image: '/technology.jpg'},
+        {title: 'Business', image: '/business.jpg'},
+        {title: 'Sports', image: '/sports.jpg'},
+        {title: 'Entertainment', image: '/entertainment.jpg'},
+        {title: 'Music', image: '/music.jpg'}
+    ]
+
+    const suggestions = [
+		{
+			category: 'technology',
+			feeds: [
+				{title: 'Tech 1'},
+				{title: 'Tech 2'},
+				{title: 'Tech 3'}
+			]
+		}
     ]
 
     return (
@@ -84,35 +96,13 @@ const AddFeed = () => {
                 </nav>
             </div>
             <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 px-4 md:pr-0 h-full overflow-y-auto">
-                <h1 className="head_text">Add Scape</h1>
-                <Form
-                    type="Add"
-                    feed={feed}
-                    setFeed={setFeed}
-                    submitting={submitting}
-                    handleSubmit={addFeed}
-                />
-                <p className="text-2xl">Categories</p>
+                <h1 className="head_text capitalize">{category === undefined ? 'Categories' : category}</h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {categories.map((category, index) => (
-                    <Link href={category.path} key={index}><div className="relative w-full h-64 rounded-md hover:filter hover:sepia transition-all cursor-pointer">
-                        <Image
-                          src={category.image}
-                          alt={category.title}
-                          width={500}
-                          height={500}
-                          className="object-cover w-full h-full rounded-md"
-                          priority
-                        />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-md">
-                        <p className="text-white font-bold text-lg">{category.title}</p>
-                      </div>
-                    </div></Link>
-                  ))}
+
                 </div>
             </div>
         </div>
     );
 }
 
-export default AddFeed;
+export default Category;

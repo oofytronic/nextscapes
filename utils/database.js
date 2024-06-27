@@ -127,26 +127,6 @@ export const getAllFeedsFromDB = async (dbName, storeName) => {
     });
 }
 
-// export async function fetchFirstArticleFromFeed(feedUrl) {
-// 	const response = await fetch(feedUrl);
-// 	const feedText = await response.text();
-
-// 	// Parse the feed (RSS, ATOM, JSONFeed) and extract the first article
-// 	// This is a simple example, you might need a proper feed parser library
-// 	const parser = new DOMParser();
-// 	const xmlDoc = parser.parseFromString(feedText, "application/xml");
-// 	const firstItem = xmlDoc.querySelector("item") || xmlDoc.querySelector("entry");
-
-// 	if (firstItem) {
-// 		return {
-// 			title: firstItem.querySelector("title")?.textContent,
-// 			link: firstItem.querySelector("link")?.textContent,
-// 		};
-// 	}
-
-// 	return null;
-// }
-
 export const getAllCollections = (db) => {
     return new Promise((resolve, reject) => {
         const transaction = db.transaction(['collections'], 'readonly');
@@ -159,6 +139,32 @@ export const getAllCollections = (db) => {
 
         request.onerror = (event) => {
             reject('Error fetching collections: ' + event.target.errorCode);
+        };
+    });
+};
+
+export const fetchFeedsByCollection = async (dbName, collectionName) => {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(dbName);
+
+        request.onsuccess = (event) => {
+            const db = event.target.result;
+            const transaction = db.transaction(['feeds'], 'readonly');
+            const store = transaction.objectStore('feeds');
+            const index = store.index('collection');
+            const query = index.getAll(collectionName);
+
+            query.onsuccess = () => {
+                resolve(query.result);
+            };
+
+            query.onerror = (event) => {
+                reject('Error fetching feeds by collection: ' + event.target.errorCode);
+            };
+        };
+
+        request.onerror = (event) => {
+            reject('IndexedDB error: ' + event.target.errorCode);
         };
     });
 };

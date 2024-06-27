@@ -4,9 +4,7 @@ export async function POST(req) {
     try {
         const data = await req.json(); // Parse JSON body
 
-        // Simulate a database operation here
-        // const db = await initDB(dbName, storeName);
-        // const result = await addFeedToDB(dbName, storeName, data);
+        // Database integrations go here...
 
         return NextResponse.json({ message: 'Feed added successfully', data }, { status: 201 });
     } catch (error) {

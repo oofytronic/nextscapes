@@ -9,6 +9,8 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 
 export default function DashboardPage() {
+    const { feeds, setFeeds } = useContext(DashContext);
+
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeLink, setActiveLink] = useState();
@@ -16,8 +18,8 @@ export default function DashboardPage() {
     const [isFeedsExpanded, setIsFeedsExpanded] = useState(false);
 
     const toggleFeeds = () => {
-        setIsFeedsExpanded(!isFeedsExpanded);
-      };
+		setIsFeedsExpanded(!isFeedsExpanded);
+	};
 
     useEffect(() => {
         const fetchFeeds = async () => {
