@@ -23,7 +23,7 @@ const CurationFeed = ({ children, feed, setFeed }) => {
     return (
         <div className="flex md:flex-col md:justify-end gap-4 font-satoshi font-semibold w-full overflow-x-scroll">
             {data.map((item, index) => (
-                <div key={index} className="flex flex-col flex-shrink-0 gap-4 w-4/5 md:w-full p-4 border border-gray-500 rounded-md bg-black/50 hover:bg-black cursor-pointer">
+                <div key={index} className="flex flex-col flex-shrink-0 gap-4 w-4/5 md:w-full p-4 border border-gray-500 rounded-md bg-black/50 hover:bg-black hover:border-white cursor-pointer">
                     <div className="flex flex-shrink-0 items-center gap-2" onClick={() => handleClick(index, item.url)}>
                         <FeedIcon siteUrl={item.url} />
                         <p className="font-bold text-md">
