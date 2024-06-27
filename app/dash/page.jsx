@@ -61,7 +61,7 @@ export default function DashboardPage() {
 		<div className="grid grid-rows-12 grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
           {/* Sidebar */}
           <div className={`${isFeedsExpanded ? 'row-start-1 row-end-5' : 'row-start-1 row-end-2'} md:col-span-1 md:row-span-12 order-1 md:order-2 flex flex-col md:items-end gap-4 border-b md:border-b-none md:border-l overflow-y-scroll`}>
-            <div className={`sticky top-0 right-0 bg-black/50 backdrop-blur p-4 ${isFeedsExpanded ? 'border-b' : ''} rounded md:border-b w-full flex justify-end`}>
+            <div className={`sticky top-0 right-0 bg-black/50 backdrop-blur .webkit-backdrop-blur p-4 ${isFeedsExpanded ? 'border-b' : ''} rounded md:border-b w-full flex justify-end`}>
               <button className="flex items-center gap-1 text-white focus:outline-none md:pointer-events-none" onClick={toggleFeeds}>
                 <p className="font-satoshi font-bold text-lg">All Scapes</p>
                 {isFeedsExpanded ? <FaChevronUp className="h-4 w-4 text-white md:hidden" /> : <FaChevronDown className="h-4 w-4 text-white md:hidden" />}

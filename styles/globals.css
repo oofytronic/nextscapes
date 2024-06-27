@@ -30,6 +30,10 @@ html {
     border-radius: 10px;
 }
 
+.webkit-backdrop-blur {
+  -webkit-backdrop-filter: blur(8px);
+}
+
 .container {
 	position: relative;
 	width: 100%;
