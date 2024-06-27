@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Form = ({ type, feed, setFeed, submitting, handleSubmit, hideUrlInput }) => {
     return (
         <section className="w-full flex flex-col gap-4">
-            <form onSubmit={handleSubmit} className="w-full flex flex-col gap-7 bg-black/50 text-white rounded-md p-6 border border-gray-500">
+            <form onSubmit={handleSubmit} className="w-full flex flex-col gap-7 bg-black/50 text-white rounded-md p-4 border border-gray-500">
                 {!hideUrlInput && (
                     <label>
                         <span className="font-satoshi font-semibold text-base text-gray-200">Feed URL</span>
@@ -22,7 +22,7 @@ const Form = ({ type, feed, setFeed, submitting, handleSubmit, hideUrlInput }) =
                     <span className="font-satoshi font-semibold text-base text-gray-200">
                         Collection
                         <br />
-                        <span className="font-normal">Create a collection or add to an existing one.</span>
+                        {/*<span className="font-normal">Create a collection or add to an existing one.</span>*/}
                     </span>
                     <input
                         type="text"
