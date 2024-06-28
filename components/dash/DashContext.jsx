@@ -8,10 +8,15 @@ export const DashContext = createContext();
 export const DashProvider = ({ children }) => {
   const [collections, setCollections] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFeedExpanded, setIsFeedExpanded] = useState(false);
   const [feeds, setFeeds] = useState([]);
 
   const toggleMenu = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const toggleFeed = () => {
+    setIsFeedExpanded(!isFeedExpanded);
   };
 
   const fetchCollections = async () => {
@@ -32,7 +37,7 @@ export const DashProvider = ({ children }) => {
   }, []);
 
   return (
-    <DashContext.Provider value={{ collections, isExpanded, feeds, setFeeds, fetchCollections, toggleMenu }}>
+    <DashContext.Provider value={{ collections, isExpanded, isFeedExpanded, feeds, setFeeds, fetchCollections, toggleMenu, toggleFeed }}>
       {children}
     </DashContext.Provider>
   );

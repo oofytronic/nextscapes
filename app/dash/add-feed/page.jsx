@@ -71,7 +71,7 @@ const AddFeed = () => {
             <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 py-4 px-4 md:pl-4 border-b md:border-b-none md:border-l overflow-y-scroll">
                 <nav className="flex flex-col gap-4 items-start w-full md:items-end">
                     <p className="font-satoshi font-bold text-lg">Featured Scapes</p>
-                    <CurationFeed feed={feed} setFeed={setFeed}>
+                    <CurationFeed feed={feed} setFeed={setFeed} structureChoice="list">
                         <Form
                             type="Add"
                             feed={feed}
