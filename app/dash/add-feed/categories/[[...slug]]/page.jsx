@@ -18,7 +18,7 @@ const Category = ( {params}) => {
         collection: ''
     });
 
-    const category = params.slug[0];
+    const category = params.slug ? params.slug[0] : undefined;
 
     const saveFeed = async (data) => {
         const dbName = 'FeedDB';
@@ -78,12 +78,15 @@ const Category = ( {params}) => {
 		}
     ]
 
+    const topic = suggestions.find(topic => topic.category === category);
+    const feedData = topic ? topic.feeds : '';
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
             <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 py-4 px-4 md:pl-4 border-b md:border-b-none md:border-l overflow-y-scroll">
                 <nav className="flex flex-col gap-4 items-start w-full md:items-end">
                     <p className="font-satoshi font-bold text-lg">Featured Scapes</p>
-                    <CurationFeed feed={feed} setFeed={setFeed}>
+                    <CurationFeed feed={feed} setFeed={setFeed} structureChoice={'list'}>
                         <Form
                             type="Add"
                             feed={feed}
@@ -98,7 +101,16 @@ const Category = ( {params}) => {
             <div className="md:col-span-3 order-2 md:order-1 flex flex-col gap-4 py-4 px-4 md:pr-0 h-full overflow-y-auto">
                 <h1 className="head_text capitalize">{category === undefined ? 'Categories' : category}</h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-
+                    <CurationFeed feed={feed} setFeed={setFeed} feedData={feedData} structureChoice={'grid'}>
+                        <Form
+                            type="Add"
+                            feed={feed}
+                            setFeed={setFeed}
+                            submitting={submitting}
+                            handleSubmit={addFeed}
+                            hideUrlInput={true}
+                        />
+                    </CurationFeed>
                 </div>
             </div>
         </div>

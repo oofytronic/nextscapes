@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import FeedIcon from '@components/FeedIcon';
 
-const CurationFeed = ({ children, feed, setFeed }) => {
+const CurationFeed = ({ children, feed, setFeed, feedData, structureChoice }) => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const handleClick = (index, url) => {
@@ -11,7 +11,7 @@ const CurationFeed = ({ children, feed, setFeed }) => {
         setFeed({ ...feed, url });
     };
 
-    const data = [
+    const defaultData = [
         { title: 'Oof Be Told', url: 'https://oofbetold.com/feed.xml' },
         { title: 'ESPN Boxing', url: 'https://www.espn.com/espn/rss/boxing/news' },
         { title: 'EDM.com', url: 'https://edm.com/.rss/full/' },
@@ -20,8 +20,16 @@ const CurationFeed = ({ children, feed, setFeed }) => {
         { title: 'Uncharted Territories', url: 'https://unchartedterritories.tomaspueyo.com/feed'}
     ];
 
+    const data = feedData ? feedData : defaultData;
+
+    const structure = structureChoice === 'list'
+                        ? 'flex md:flex-col md:justify-end gap-4 font-satoshi font-semibold w-full overflow-x-scroll'
+                      : structureChoice === 'grid'
+                        ? 'flex flex-col md:flex-row gap-4 font-satoshi font-semibold w-full'
+                      : 'flex';
+
     return (
-        <div className="flex md:flex-col md:justify-end gap-4 font-satoshi font-semibold w-full overflow-x-scroll">
+        <div className={structure}>
             {data.map((item, index) => (
                 <div key={index} className="flex flex-col flex-shrink-0 gap-4 w-4/5 md:w-full p-4 border border-gray-500 rounded-md bg-black/50 hover:bg-black hover:border-white cursor-pointer">
                     <div className="flex flex-shrink-0 items-center gap-2" onClick={() => handleClick(index, item.url)}>
