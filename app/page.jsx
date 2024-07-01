@@ -1,9 +1,29 @@
+'use client';
+
 import Nav from '@components/Nav';
 import Footer from '@components/Footer';
 import Feed from '@components/Feed';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { checkIndexedDB, isPWAInstalled } from '@utils/database.js';
 
 const Home = () => {
+	const router = useRouter();
+
+	useEffect(() => {
+		const checkConditionsAndRedirect = async () => {
+			const indexedDBExists = await checkIndexedDB();
+			const pwaInstalled = isPWAInstalled();
+
+			if (indexedDBExists || pwaInstalled) {
+				router.push('/dash');
+			}
+		};
+
+		checkConditionsAndRedirect();
+	}, []);
+
 	return (
 		<div className="content w-full min-h-dvh">
 			<Nav />

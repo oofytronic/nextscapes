@@ -1,3 +1,35 @@
+export const checkIndexedDB = () => {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('FeedDB');
+
+    request.onsuccess = (event) => {
+      const db = event.target.result;
+      const transaction = db.transaction(['feeds'], 'readonly');
+      transaction.onerror = () => {
+        resolve(false);
+      };
+      transaction.oncomplete = () => {
+        resolve(true);
+      };
+    };
+
+    request.onerror = () => {
+      resolve(false);
+    };
+
+    request.onupgradeneeded = (event) => {
+      // This will not trigger if the database already exists
+      event.target.transaction.abort();
+      resolve(false);
+    };
+  });
+};
+
+
+export const isPWAInstalled = () => {
+	return window.matchMedia('(display-mode: standalone)').matches;
+};
+
 export const initDB = async (dbName, storeNames) => {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(dbName, 1);

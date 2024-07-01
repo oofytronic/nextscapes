@@ -15,7 +15,7 @@ const DashNav = () => {
 	return (
 		<nav className="top-nav flex-between">
 			<div className="flex gap-2 flex-center">
-				<Link href="/">
+				<Link href="/dash">
 					<Image
 						src="/icon.svg"
 						width={50}
@@ -23,9 +23,6 @@ const DashNav = () => {
 						alt="Scapes Icon"
 						priority={true}
 					/>
-				</Link>
-				<Link href="/">
-					<p className="font-satoshi font-bold text-lg">Scapes</p>
 				</Link>
 			</div>
 			<div className="flex gap-3 md:gap-4">
