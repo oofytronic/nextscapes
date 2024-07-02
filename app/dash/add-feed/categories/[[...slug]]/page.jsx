@@ -71,11 +71,46 @@ const Category = ( {params}) => {
 		{
 			category: 'technology',
 			feeds: [
-				{title: 'Tech 1'},
-				{title: 'Tech 2'},
-				{title: 'Tech 3'}
+				{title: 'The Verge', url: 'https://www.theverge.com/rss/index.xml'},
+				{title: 'Engadget', url: 'https://www.engadget.com/rss.xml'},
+				{title: 'TechCrunch', url: 'https://techcrunch.com/feed/'},
+                {title: 'LifeHacker', url: 'https://lifehacker.com/feed/rss'},
+                {title: 'Wired', url: 'https://www.wired.com/feed/rss'},
+                {title: 'The Next Web', url: 'https://thenextweb.com/feed'}
 			]
-		}
+		},
+        {
+            category: 'business',
+            feeds: [
+                {title: 'Business Insider', url: 'http://feeds2.feedburner.com/businessinsider'},
+                {title: 'Entrepreneur', url: 'https://www.entrepreneur.com/latest.rss'},
+                {title: 'The Economist | Business', url: 'https://www.economist.com/business/rss.xml'}
+            ]
+        },
+        {
+            category: 'sports',
+            feeds: [
+                {title: 'ESPN | Top', url: 'https://sports.espn.go.com/espn/rss/news'},
+                {title: 'CBS Sports', url: 'https://www.cbssports.com/partners/feeds/rss/home_news'},
+                {title: 'AutoSport | F1', url: 'https://www.autosport.com/rss/f1news.xml'}
+            ]
+        },
+        {
+            category: 'music',
+            feeds: [
+                {title: 'Pitchfork', url: 'https://pitchfork.com/feed/feed-news/rss'},
+                {title: 'Metal Injection', url: 'https://feeds.feedburner.com/metalinjection'},
+                {title: 'EDM.com', url: 'https://edm.com/.rss/full/'}
+            ]
+        },
+        {
+            category: 'entertainment',
+            feeds: [
+                {title: 'Variety', url: 'http://variety.com/feed/'},
+                {title: 'Vulture', url: 'https://feeds.feedburner.com/nymag/vulture'},
+                {title: 'ET Online', url: 'https://www.etonline.com/news/rss'}
+            ]
+        }
     ]
 
     const topic = suggestions.find(topic => topic.category === category);
