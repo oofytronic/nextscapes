@@ -89,11 +89,11 @@ export default function DashboardPage() {
                 {articles.map((article, index) => (
                   <a key={index} href={article.link} target="_blank" rel="noopener noreferrer" className="h-full w-full">
                     <div className="flex flex-col gap-4 bg-black/50 transition border border-gray-500 rounded-md p-6 cursor-pointer h-full hover:bg-black hover:border-white">
+                      <p className="text-sm">{article.channel}</p>
                       {article.image && (
-                        <img src={article.image} alt={article.title} className="w-full h-auto object-contain rounded-md" />
+                        <img src={article.image} alt={article.title} className="w-full max-h-52 object-cover rounded-md" />
                       )}
                       <div className="flex flex-col gap-4">
-                        <p className="text-sm">{article.channel}</p>
                         <h2 className="font-inter font-semibold">{article.title}</h2>
                         <p className="font-satoshi font-semibold text-sm break-words truncate">
                           {article.des}
