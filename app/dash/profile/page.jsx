@@ -65,7 +65,7 @@ const ProfilePage = () => {
 
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 w-full h-full">
-		    <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 py-4 px-4 border-b md:border-b-none md:border-l">
+		    <div className="sticky top-0 right-0 z-10 md:col-span-1 order-1 md:order-2 bg-black/50 py-4 px-4 border-b md:border-b-none md:border-l">
 		        <nav className="flex flex-col gap-2 items-start w-full md:items-end">
 		            <p className="font-satoshi font-bold text-lg">Actions</p>
                     <div className="flex md:justify-end gap-2 font-satoshi font-semibold w-full overflow-x-scroll">
