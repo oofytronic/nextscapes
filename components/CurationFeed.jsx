@@ -14,7 +14,6 @@ const CurationFeed = ({ children, feed, setFeed, feedData, structureChoice }) =>
     };
 
     const defaultData = [
-        { title: 'Oof Be Told', url: 'https://oofbetold.com/feed.xml' },
         { title: 'ESPN Boxing', url: 'https://www.espn.com/espn/rss/boxing/news' },
         { title: 'EDM.com', url: 'https://edm.com/.rss/full/' },
         { title: 'AutoSport | Formula 1', url: 'https://www.autosport.com/rss/f1/news/' },
